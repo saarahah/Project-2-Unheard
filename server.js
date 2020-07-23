@@ -2,6 +2,7 @@ const express = require("express");
 const db = require("./models");
 const session = require("express-session");
 const passport = require("passport");
+var exphbs  = require("express-handlebars");
 
 const app = express();
 
@@ -15,6 +16,8 @@ const PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
 
 // set up express-session
 app.use(session({
