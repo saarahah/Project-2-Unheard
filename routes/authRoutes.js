@@ -4,6 +4,7 @@ const db = require("../models");
 const passport = require("../config/passport");
 const auth = require("../middleware/auth");
 
+
 // All routes start with: /auth
 // Route: /auth/register
 router.post("/register", async (req, res) => {
@@ -101,7 +102,7 @@ router.get("/user", auth, async (req, res) => {
     const userdId = req.session.passport.user;
     const user = await db.User.findOne({ where: { id: userdId } });
     const { id, email } = user;
-    res.json({ id, email });
+    res.json({id, email});
   } catch (err) {
     if (err) {
       console.log(err);
