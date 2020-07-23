@@ -1,0 +1,12 @@
+### Schema
+
+CREATE DATABASE DB_DATABASE;
+USE DB_DATABASE;
+
+CREATE TABLE cats
+(
+	id int NOT NULL AUTO_INCREMENT,
+	name varchar(255) NOT NULL,
+
+	PRIMARY KEY (id)
+);
