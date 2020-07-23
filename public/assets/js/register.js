@@ -16,6 +16,7 @@ const handleSubmit = async (e) => {
     password: passwordInputReg.value,
     passwordTwo: passwordTwoInputReg.value
   };
+  console.log(userObj)
   // Create Object to be used on the log-in request after successful registration with information from the form
   const loginObj = {
     email: emailInputReg.value,
