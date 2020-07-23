@@ -28,3 +28,4 @@ CREATE TABLE death
 	deaths int NOT NULL,
 	PRIMARY KEY (id)
 );
+
