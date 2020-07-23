@@ -13,4 +13,4 @@ router.use("/auth", authRoutes);
 router.use("/", htmlRoutes);
 
 
-module.exports = router
+module.exports = router;
