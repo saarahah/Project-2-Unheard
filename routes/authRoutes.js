@@ -114,12 +114,12 @@ router.get("/user", auth, async (req, res) => {
   }
 });
 
-//////////////////////////
-router.post("/api/dashboard", function(req, res) {
-  db.User.create(req.body).then(function(dbUser) {
-    res.json(dbUser);
-  });
-});
+// //////////////////////////
+// router.post("/api/dashboard", function(req, res) {
+//   db.User.create(req.body).then(function(dbUser) {
+//     res.json(dbUser);
+//   });
+// });
 
 
 
@@ -129,7 +129,7 @@ router.get("/logout", (req, res) => {
   // Log out user
   req.logout();
   // redirect to main page
-  res.redirect("/user/login");
+  res.redirect("/users/login");
 });
 
 module.exports = router;

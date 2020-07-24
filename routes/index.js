@@ -8,12 +8,12 @@ const postRoutes = require("./postRoutes");
 router.use("/auth", authRoutes);
 
 //api routes
-// router.use("/api", apiRoutes);
+router.use("/api", apiRoutes);
 
 //html routes
 router.use("/", htmlRoutes);
 
-router.use("/post", postRoutes);
+// router.use("/posts", postRoutes);
 
 
 module.exports = router;
