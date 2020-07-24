@@ -2,6 +2,8 @@
 const emailInputReg = document.querySelector("#emailInputReg");
 const passwordInputReg = document.querySelector("#passwordInputReg");
 const passwordTwoInputReg = document.querySelector("#passwordTwoInputReg");
+const stateInputReg = document.querySelector("#stateInputReg");
+const cityInputReg = document.querySelector("#cityInputReg");
 const submitBtnReg = document.querySelector("#submitBtnReg");
 const rowAlertReg = document.querySelector(".alertAppendReg");
 const divAlertReg = document.createElement("div");
@@ -14,7 +16,10 @@ const handleSubmit = async (e) => {
   const userObj = {
     email: emailInputReg.value,
     password: passwordInputReg.value,
-    passwordTwo: passwordTwoInputReg.value
+    passwordTwo: passwordTwoInputReg.value,
+    state: stateInputReg.value,
+    city: cityInputReg.value
+
   };
   console.log(userObj)
   // Create Object to be used on the log-in request after successful registration with information from the form

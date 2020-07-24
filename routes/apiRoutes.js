@@ -4,15 +4,6 @@ var db = require("../models");
 // const index = require("index.js")
 // const server = require("../server.js")
 
-// use this file to code your API routes
-
-// All routes start with: /api
-
-// Route: /api/example
-// i.e: router.get("/example", (req, res) => {
-//     //your code here
-// })
-
 router.get("/posts", function(req, res) {
     var query = {};
     if (req.query.user) {
@@ -26,9 +17,5 @@ router.get("/posts", function(req, res) {
       res.json(dbPost);
     });
   });
-
-
-
-
-
 module.exports = router;
+
