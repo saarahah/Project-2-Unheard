@@ -2,7 +2,7 @@ const express = require("express");
 const db = require("./models");
 const session = require("express-session");
 const passport = require("passport");
-var exphbs  = require("express-handlebars");
+var exphbs = require("express-handlebars");
 const app = express();
 
 // import routes
@@ -21,11 +21,13 @@ app.engine("handlebars", exphbs());
 app.set("view engine", "handlebars");
 
 // set up express-session
-app.use(session({
-  secret: "keyboard cat",
-  resave: false,
-  saveUninitialized: true
-}));
+app.use(
+  session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 // use passport middleware
 app.use(passport.initialize());
@@ -35,7 +37,7 @@ app.use(passport.session());
 app.use(routes);
 
 // connect to database and start server
-db.sequelize.sync({force: true}).then(() => {
+db.sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => {
     console.log(`app listening on: http://localhost:${PORT}`);
   });

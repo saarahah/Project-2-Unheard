@@ -4,11 +4,10 @@ const db = require("../models");
 const passport = require("../config/passport");
 const auth = require("../middleware/auth");
 
-
 // All routes start with: /auth
 // Route: /auth/register
 router.post("/register", async (req, res) => {
-console.log("this is req object " + JSON.stringify(req.body))
+  console.log("this is req object " + JSON.stringify(req.body));
   try {
     const { email, password, passwordTwo, state, city } = req.body;
     // check if there are any empty fields
@@ -22,7 +21,9 @@ console.log("this is req object " + JSON.stringify(req.body))
     }
     // check for password length - al least 6 characters
     if (password.length < 6) {
-      return res.status(400).json({ message: "Password needs to be at least 6 characters" });
+      return res
+        .status(400)
+        .json({ message: "Password needs to be at least 6 characters" });
     }
     // for both passwords to be the same
     if (password !== passwordTwo) {
@@ -33,7 +34,9 @@ console.log("this is req object " + JSON.stringify(req.body))
 
     if (user) {
       // if user already in database, send error
-      res.status(400).json({ message: "User already Registered. Please, LogIn" });
+      res
+        .status(400)
+        .json({ message: "User already Registered. Please, LogIn" });
     } else {
       // Using bcrypt to hash the password
       bcrypt.genSalt(10, (err, salt) => {
@@ -46,18 +49,18 @@ console.log("this is req object " + JSON.stringify(req.body))
             email,
             password: hash,
             state,
-            city
+            city,
           })
-            .then(data => {
+            .then((data) => {
               const { id, email, state, city } = data;
               res.json({
                 id,
-                email, 
+                email,
                 state,
-                city
+                city,
               });
             })
-            .catch(err => console.log(err));
+            .catch((err) => console.log(err));
         });
       });
     }
@@ -66,12 +69,10 @@ console.log("this is req object " + JSON.stringify(req.body))
       res.status(500).json({ message: "Internal Error" });
     }
   }
-
 });
 
 // Route: /auth/register
 router.post("/login", (req, res, next) => {
-
   const { email, password } = req.body;
 
   // check if there are any empty fields
@@ -98,7 +99,6 @@ router.post("/login", (req, res, next) => {
   })(req, res, next);
 });
 
-
 // Route: /auth/user
 // route to get user information which is passing the middleware "auth" which checks if user is Authenticated before getting the information from the user.
 // you can use the middleware auth to restrict access to pages to users that are not Authenticated
@@ -107,7 +107,7 @@ router.get("/user", auth, async (req, res) => {
     const userdId = req.session.passport.user;
     const user = await db.User.findOne({ where: { id: userdId } });
     const { id, email } = user;
-    res.json({id, email});
+    res.json({ id, email });
   } catch (err) {
     if (err) {
       console.log(err);
@@ -121,9 +121,6 @@ router.get("/user", auth, async (req, res) => {
 //     res.json(dbUser);
 //   });
 // });
-
-
-
 
 // Route: /auth/logout
 router.get("/logout", (req, res) => {
