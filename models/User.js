@@ -1,4 +1,3 @@
-
 module.exports = function (sequelize, DataTypes) {
   var User = sequelize.define("User", {
     email: {
@@ -6,30 +5,29 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       unique: true,
       validate: {
-        isEmail: true
-      }
+        isEmail: true,
+      },
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
 
     state: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
-    
+
     city: {
       type: DataTypes.STRING,
-      allowNull: false
-    }
+      allowNull: false,
+    },
   });
 
-  User.associate = function(models){
+  User.associate = function (models) {
     User.hasMany(models.Post, {
-      onDelete: "cascade"
-    })
-  }
-
+      onDelete: "cascade",
+    });
+  };
   return User;
 };

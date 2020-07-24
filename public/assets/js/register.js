@@ -1,4 +1,3 @@
-
 const emailInputReg = document.querySelector("#emailInputReg");
 const passwordInputReg = document.querySelector("#passwordInputReg");
 const passwordTwoInputReg = document.querySelector("#passwordTwoInputReg");
@@ -18,22 +17,21 @@ const handleSubmit = async (e) => {
     password: passwordInputReg.value,
     passwordTwo: passwordTwoInputReg.value,
     state: stateInputReg.value,
-    city: cityInputReg.value
-
+    city: cityInputReg.value,
   };
-  console.log(userObj)
+  console.log(userObj);
   // Create Object to be used on the log-in request after successful registration with information from the form
   const loginObj = {
     email: emailInputReg.value,
-    password: passwordInputReg.value
+    password: passwordInputReg.value,
   };
   // Request to server to Register passing the User information (userObj)
   const response = await fetch("/auth/register", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(userObj)
+    body: JSON.stringify(userObj),
   });
   const data = await response.json();
   // If there is an error, display error to screen.
@@ -48,9 +46,9 @@ const handleSubmit = async (e) => {
     await fetch("/auth/login", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(loginObj)
+      body: JSON.stringify(loginObj),
     });
     // redirect to Main page (Authorize)
     window.location.href = "/";
