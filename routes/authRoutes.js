@@ -8,11 +8,11 @@ const auth = require("../middleware/auth");
 // All routes start with: /auth
 // Route: /auth/register
 router.post("/register", async (req, res) => {
-
+console.log("this is req object " + JSON.stringify(req.body))
   try {
-    const { email, password, passwordTwo } = req.body;
+    const { email, password, passwordTwo, state, city } = req.body;
     // check if there are any empty fields
-    if (!email || !password || !passwordTwo) {
+    if (!email || !password || !passwordTwo || !state || !city) {
       return res.status(400).json({ message: "Please fill all fields" });
     }
     // check for correct email format
@@ -44,13 +44,17 @@ router.post("/register", async (req, res) => {
           // save hashed password into dtaa base
           db.User.create({
             email,
-            password: hash
+            password: hash,
+            state,
+            city
           })
             .then(data => {
-              const { id, email } = data;
+              const { id, email, state, city } = data;
               res.json({
                 id,
-                email
+                email, 
+                state,
+                city
               });
             })
             .catch(err => console.log(err));
@@ -64,9 +68,6 @@ router.post("/register", async (req, res) => {
   }
 
 });
-
-
-
 
 // Route: /auth/register
 router.post("/login", (req, res, next) => {
