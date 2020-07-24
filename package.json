@@ -1,7 +1,7 @@
 {
   "name": "passport_sequelize_boiler_plate",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Online Example:",
   "main": "server.js",
   "scripts": {
     "lint": "eslint **/*.js --quiet",
@@ -22,5 +22,13 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "sequelize": "^5.21.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saarahah/Project-2-Unheard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/saarahah/Project-2-Unheard/issues"
+  },
+  "homepage": "https://github.com/saarahah/Project-2-Unheard#readme"
 }
