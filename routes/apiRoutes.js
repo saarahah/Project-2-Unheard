@@ -1,4 +1,4 @@
-// const router = require("express").Router();
+const router = require("express").Router();
 
 // use this file to code your API routes
 
@@ -9,4 +9,7 @@
 //     //your code here
 // })
 
-// module.exports = router;
+module.exports = router;
+
+// module.exports = function(app)
+

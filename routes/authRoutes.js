@@ -65,6 +65,9 @@ router.post("/register", async (req, res) => {
 
 });
 
+
+
+
 // Route: /auth/register
 router.post("/login", (req, res, next) => {
 
@@ -94,6 +97,7 @@ router.post("/login", (req, res, next) => {
   })(req, res, next);
 });
 
+
 // Route: /auth/user
 // route to get user information which is passing the middleware "auth" which checks if user is Authenticated before getting the information from the user.
 // you can use the middleware auth to restrict access to pages to users that are not Authenticated
@@ -109,6 +113,17 @@ router.get("/user", auth, async (req, res) => {
     }
   }
 });
+
+//////////////////////////
+router.post("/api/dashboard", function(req, res) {
+  db.User.create(req.body).then(function(dbUser) {
+    res.json(dbUser);
+  });
+});
+
+
+
+
 // Route: /auth/logout
 router.get("/logout", (req, res) => {
   // Log out user
