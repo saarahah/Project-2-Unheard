@@ -37,7 +37,7 @@ app.use(passport.session());
 app.use(routes);
 
 // connect to database and start server
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
     console.log(`app listening on: http://localhost:${PORT}`);
   });
