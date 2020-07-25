@@ -11,6 +11,8 @@ router.get("/posts", function (req, res) {
   }
 });
 
+
+
 // POST route for saving a new post
 router.post("/posts", function (req, res) {
   db.Post.create(req.body).then(function (dbPost) {
