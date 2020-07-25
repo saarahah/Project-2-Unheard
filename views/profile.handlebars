@@ -48,10 +48,16 @@
             <label for="usrProfileState" id = "usrProfileState">Current State</label><span>{{state}}</span>
             <hr>
             <h2 class="text-center">Update your info</h2>
-            {{!-- Allows user to change their passoword --}}
+
+            {{!-- Allows user to change their email --}}
             <label for="usrProfileEmailUpdate">Email</label>
-            <input type="password" class="form-control" id="usrProfileEmailUpdate">
+            <input type="email" class="form-control" id="usrProfileEmailUpdate">
             <button id="submitBtnRegEmailUpdate" type="submit" class="btn btn-primary">Update Email</button>
+            <hr>
+            {{!-- Allows user to change their password --}}
+            <label for="usrProfilePasswordUpdate">Password</label>
+            <input type="password" class="form-control" id="usrProfilePasswordUpdate">
+            <button id="submitBtnRegPasswordUpdate" type="submit" class="btn btn-primary">Update Password</button>
             <hr>
             {{!-- Allows user to change their city --}}
             <label for="usrProfileCityUpdate">City</label>
@@ -117,7 +123,7 @@
             <hr>
 
             <label for="usrProfileImage">Profile Image</label>
-            <input type="password" class="form-control" id="picInputReg">
+            <input type="input" class="form-control" id="picInputReg">
             <button id="submitBtnReg" type="submit" class="btn btn-primary">Upload Image</button>
         </div>
     </div>
