@@ -34,10 +34,10 @@ $("#submitBtnRegEmailUpdate").on("click", function (event) {
     };
 console.log(updateEmail);
     // Send the put request.
-    $.ajax("/api/update/email/", {
+    $.ajax("/api/update/email", {
         // change to get
         type: "PUT",
-        data: email
+        data: updateEmail
     }).then(
         function () {
             console.log("Updated Users Email" + updateEmail);
@@ -61,7 +61,7 @@ console.log(updatePassword);
     $.ajax("/api/update/password/", {
         // change to get
         type: "PUT",
-        data: password
+        data: updatePassword
     }).then(
         function () {
             console.log("Updated Users Password" + updatePassword);
@@ -85,7 +85,7 @@ console.log(updateCity);
     $.ajax("/api/update/city/", {
         // change to get
         type: "PUT",
-        data: city
+        data: updateCity
     }).then(
         function () {
             console.log("Updated Users city");
@@ -109,7 +109,7 @@ console.log(updateState);
     $.ajax("/api/update/state/", {
         // change to get
         type: "PUT",
-        data: state
+        data: updateState
     }).then(
         function () {
             console.log("Updated Users state" + updateState);
