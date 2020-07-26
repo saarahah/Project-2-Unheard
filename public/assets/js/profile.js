@@ -9,8 +9,6 @@ const usrProfileStateUpdate = document.querySelector("#usrProfileStateUpdate");
 var usrInfoList = $("tbody");
 var usrInfoContainer = $(".usrInfo-container");
 
-    ////////////////////////////////Testing ID//////////////////
-
     // Get current User and display email information.
     // Here you can display any User information coming from the server.
     const userName = document.querySelector(".userName");
@@ -21,15 +19,11 @@ var usrInfoContainer = $(".usrInfo-container");
         .then((data) => {
             userId = data.id;
             userName.textContent = data.email;
-            console.log("2 TESTUserId is " + userId);
             return userId;
         })
         .catch((err) => console.log(err))
 
     console.log("2 userid is - " + userId)
-
-    /////////////End of testing////////////////////////////////
-
 
 
 
@@ -45,21 +39,18 @@ $("#submitBtnRegEmailUpdate").on("click", function (event) {
     var updateEmail = {
         email: $("#usrProfileEmailUpdate").val().trim(),
     };
-    console.log("3" + updateEmail);
-    //need to find the id for the user and declare it below
     id = userId
     console.log("id is " + id);
     // Send the put request.
     $.ajax("/api/update/email/" + id, {
-        // change to get
         type: "PUT",
         data: updateEmail
     }).then(
         function (res) {
             console.log("4" + res);
             console.log("5 Updated Users Email" + updateEmail);
-            // Reload the page to get the updated list
-            // location.reload();
+            // Reloads
+            location.reload();
         }
     );
 });
