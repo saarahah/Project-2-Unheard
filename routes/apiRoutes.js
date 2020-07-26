@@ -30,13 +30,13 @@ router.post("/posts", function (req, res) {
 router.put("/update/email/:id", function (req, res) {
   console.log("req.body.email is " + req.body.email);
   // should console log the id of the logged in user
-  console.log("req.params.id" + req.params.id);
-  console.log("user is - " + userId);
+  console.log("req.params.id is " + req.params.id);
+  console.log("MySql ID is - " + req.params.id);
   db.User.update({
     email: req.body.email
   }, {
     where: {
-      id: req.param.id
+      id: req.params.id
     }
   })
     .then(function (dbUser) {
@@ -50,7 +50,7 @@ router.put("/update/password/", function (req, res) {
   // router.put("/update/password/:id", function (req, res) {
   console.log("req.body.password" + req.body.password);
   // should console log the id of the logged in user
-  console.log("req.params.id" + req.params.id);
+  console.log("MySql ID is " + req.params.id);
   db.User.update({
     password: req.body.password
   }, {
