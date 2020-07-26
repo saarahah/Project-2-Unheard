@@ -5,13 +5,11 @@ var db = require("../models");
 // const server = require("../server.js")
 
 router.get("/posts", function (req, res) {
-  var query = {};
-  if (req.query.user) {
-    query.UserId = req.query.user;
-  }
+  db.Post.findAll().then(function (dbPost) {
+    //send back all db posts as json
+    //send posts out
+  });
 });
-
-
 
 // POST route for saving a new post
 router.post("/posts", function (req, res) {
@@ -19,40 +17,25 @@ router.post("/posts", function (req, res) {
     res.json(dbPost);
   });
 });
-module.exports = router;
-
-
 
 //PUT route for updating user profile email
 router.put("/api/update/email", function (req, res) {
-  var condition = req.body;//.usrProfileEmailUpdate;
+  var condition = req.body; //.usrProfileEmailUpdate;
 
-  db.User.update(req.body)
-    .then(function (dbUser) {
-      res.json(dbUser)
-    })
+  db.User.update(req.body).then(function (dbUser) {
+    res.json(dbUser);
+  });
 });
 
+router.get("/deaths", function (req, res) {
+  //query deaths table for death data
+  db.Death.findAll({
+    where: {
+      year: 2019
+    }
+  }).then((results) => {
+    res.json(results)
+  });
+});
 
-
-
-
-
-
-
-
-
-
-  // console.log("Api Route condition" + condition);
-
-  // user.update({
-    // req.parms refers to url req . body is form info
-    // email: req.body.usrProfileEmailUpdate
-  // }, condition, function(result) {
-    // if (result.changedRows == 0) {
-      // If no rows were changed, then the ID must not exist, so 404
-      // return res.status(404).end();
-    // } else {
-      // res.status(200).end();
-
-
+module.exports = router;
