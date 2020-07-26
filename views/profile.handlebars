@@ -31,15 +31,35 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-4 mx-auto text-center">
-            <h2>User Profile</h2>
+            <h2>User Profile old</h2>
         </div>
     </div>
 </div>
+<div class="row">
+			<div class="col-md-6 mx-auto text-center">
+				<div class="usrInfo-container">
+					<h1>User Profile</h1>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Current Email</th>
+								<th>Current City</th>
+								<th>Current State</th>
+								<th>Current Image</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+        {{!-- need to remove this next --}}
 <div class="form-group-usrUpdate">
     <div class="row">
         <div class="col-md-6 mx-auto text-left">
             {{!-- Allows user to view their email --}}
-            <label for="usrProfileEmail" id="usrProfileEmail">Current Email</label><p>{{email}}</span>
+            <label for="usrProfileEmail" id="usrProfileEmail">Current Email</label><span>{{email}}</span>
             <hr>
             {{!-- Allows user to view their City --}}
             <label for="usrProfileCity" id ="usrProfileCity">Current City</label><span>{{city}}</span>

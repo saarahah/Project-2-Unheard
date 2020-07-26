@@ -4,45 +4,62 @@ const usrProfileState = document.querySelector("#usrProfileState");
 const usrProfileEmailUpdate = document.querySelector("#usrProfileEmailUpdate");
 const usrProfileCityUpdate = document.querySelector("#usrProfileCityUpdate");
 const usrProfileStateUpdate = document.querySelector("#usrProfileStateUpdate");
-// const submitBtnReg = document.querySelector("#submitBtnReg");
-// const rowAlertReg = document.querySelector(".alertAppendReg");
-// const divAlertReg = document.createElement("div");
+
+// References to the email, city and state
+var usrInfoList = $("tbody");
+var usrInfoContainer = $(".usrInfo-container");
+
+    ////////////////////////////////Testing ID//////////////////
+
+    // Get current User and display email information.
+    // Here you can display any User information coming from the server.
+    const userName = document.querySelector(".userName");
+    let userId = null;
+
+    fetch("/auth/user")
+        .then((response) => response.json())
+        .then((data) => {
+            userId = data.id;
+            userName.textContent = data.email;
+            console.log("2 TESTUserId is " + userId);
+            return userId;
+        })
+        .catch((err) => console.log(err))
+
+    console.log("2 userid is - " + userId)
+
+    /////////////End of testing////////////////////////////////
 
 
 
-
-// Send the PUT request.
-// $.ajax("/api/update/" + id, {
-//     type: "PUT",
-//     data: newSleepState
-// }).then(
-//     function () {
-//         console.log("changed sleep to", newSleep);
-//         // Reload the page to get the updated list
-//         location.reload();
-//     }
-// );
 
 // Submit Update Button for email
 $("#submitBtnRegEmailUpdate").on("click", function (event) {
     // Make sure to preventDefault on a submit event.
-    console.log("Email Update test");
+    console.log("1 Email Update test");
     event.preventDefault();
+
+
+
     // packaging as object
     var updateEmail = {
         email: $("#usrProfileEmailUpdate").val().trim(),
     };
-console.log(updateEmail);
+    console.log("3" + updateEmail);
+    //need to find the id for the user and declare it below
+    id = userId
+    console.log("id is " + id);
     // Send the put request.
-    $.ajax("/api/update/email", {
+    $.ajax("/api/update/email/" + id, {
         // change to get
         type: "PUT",
         data: updateEmail
     }).then(
-        function () {
-            console.log("Updated Users Email" + updateEmail);
+        function (res) {
+            console.log("4" + res);
+            console.log("5 Updated Users Email" + updateEmail);
             // Reload the page to get the updated list
-            location.reload();
+            // location.reload();
         }
     );
 });
@@ -56,7 +73,7 @@ $("#submitBtnRegPasswordUpdate").on("click", function (event) {
     var updatePassword = {
         password: $("#usrProfilePasswordUpdate").val().trim(),
     };
-console.log(updatePassword);
+    console.log(updatePassword);
     // Send the put request.
     $.ajax("/api/update/password/", {
         // change to get
@@ -80,7 +97,7 @@ $("#submitBtnRegCityUpdate").on("click", function (event) {
     var updateCity = {
         city: $("#usrProfileCityUpdate").val().trim(),
     };
-console.log(updateCity);
+    console.log(updateCity);
     // Send the put request.
     $.ajax("/api/update/city/", {
         // change to get
@@ -104,7 +121,7 @@ $("#submitBtnRegStateUpdate").on("click", function (event) {
     var updateState = {
         state: $("#usrProfileStateUpdate").val().trim(),
     };
-console.log(updateState);
+    console.log(updateState);
     // Send the put request.
     $.ajax("/api/update/state/", {
         // change to get
@@ -118,3 +135,33 @@ console.log(updateState);
         }
     );
 });
+
+
+// Code to display current user email
+// $(document).ready(function () {
+//     function getUserInfo() {
+//         $ajax("api/user/info", function (data) {
+//             var rowsToAdd = [];
+//             for (var i = 0; i < data.length; i++) {
+//                 rowsToAdd.push(createAuthorRow(data[i]));
+//             }
+//             renderUserList(rowsToAdd);
+//             nameInput.val("");
+//         });
+//     }
+
+//     // A function for rendering the list of authors to the page
+//     function renderUserList(rows) {
+//         usrInfoList.children().not(":last").remove();
+//         usrInfoContainer.children(".alert").remove();
+//         if (rows.length) {
+//             console.log(rows);
+//             authorList.prepend(rows);
+//         }
+//         else {
+//             renderEmpty();
+//         }
+//     }
+
+
+// };
