@@ -24,14 +24,17 @@ module.exports = router;
 
 
 //PUT route for updating user profile email
-router.put("/api/update/email/", function(req, res) {
-  var condition = req.body.usrProfileEmailUpdate;
-  
-  db.User.update(condition)
-  console.log("router put " + condition); 
-  
-  
-  
+router.put("/api/update/email", function (req, res) {
+  var condition = req.body;//.usrProfileEmailUpdate;
+
+  db.User.update(req.body)
+    .then(function (dbUser) {
+      res.json(dbUser)
+    })
+});
+
+
+
 
 
 
@@ -51,5 +54,5 @@ router.put("/api/update/email/", function(req, res) {
       // return res.status(404).end();
     // } else {
       // res.status(200).end();
-    });
+
 
