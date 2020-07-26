@@ -5,10 +5,30 @@ const usrProfileEmailUpdate = document.querySelector("#usrProfileEmailUpdate");
 const usrProfileCityUpdate = document.querySelector("#usrProfileCityUpdate");
 const usrProfileStateUpdate = document.querySelector("#usrProfileStateUpdate");
 
-    // References to the email, city and state
-    var usrInfoList = $("tbody");
-    var usrInfoContainer = $(".usrInfo-container");
+// References to the email, city and state
+var usrInfoList = $("tbody");
+var usrInfoContainer = $(".usrInfo-container");
 
+    ////////////////////////////////Testing ID//////////////////
+
+    // Get current User and display email information.
+    // Here you can display any User information coming from the server.
+    const userName = document.querySelector(".userName");
+    let userId = null;
+
+    fetch("/auth/user")
+        .then((response) => response.json())
+        .then((data) => {
+            userId = data.id;
+            userName.textContent = data.email;
+            console.log("2 TESTUserId is " + userId);
+            return userId;
+        })
+        .catch((err) => console.log(err))
+
+    console.log("2 userid is - " + userId)
+
+    /////////////End of testing////////////////////////////////
 
 
 
@@ -16,26 +36,30 @@ const usrProfileStateUpdate = document.querySelector("#usrProfileStateUpdate");
 // Submit Update Button for email
 $("#submitBtnRegEmailUpdate").on("click", function (event) {
     // Make sure to preventDefault on a submit event.
-    console.log("Email Update test");
+    console.log("1 Email Update test");
     event.preventDefault();
+
+
+
     // packaging as object
     var updateEmail = {
         email: $("#usrProfileEmailUpdate").val().trim(),
     };
-    console.log(updateEmail);
+    console.log("3" + updateEmail);
     //need to find the id for the user and declare it below
-    id = 
+    id = userId
+    console.log("id is " + id);
     // Send the put request.
-    $.ajax("/api/update/email/", {
+    $.ajax("/api/update/email/" + id, {
         // change to get
         type: "PUT",
         data: updateEmail
     }).then(
         function (res) {
-            console.log(res);
-            console.log("Updated Users Email" + updateEmail);
+            console.log("4" + res);
+            console.log("5 Updated Users Email" + updateEmail);
             // Reload the page to get the updated list
-            location.reload();
+            // location.reload();
         }
     );
 });

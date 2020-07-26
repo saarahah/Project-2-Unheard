@@ -27,15 +27,16 @@ router.post("/posts", function (req, res) {
 
 //PUT route for updating user profile email
 //The route matches this route /api/update/email
-router.put("/update/email/", function (req, res) {
-  console.log(req.body.email);
+router.put("/update/email/:id", function (req, res) {
+  console.log("req.body.email is " + req.body.email);
   // should console log the id of the logged in user
-  console.log(req.params.id);
+  console.log("req.params.id" + req.params.id);
+  console.log("user is - " + userId);
   db.User.update({
     email: req.body.email
   }, {
     where: {
-      id: 3
+      id: req.param.id
     }
   })
     .then(function (dbUser) {
