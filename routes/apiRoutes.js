@@ -4,6 +4,7 @@ var db = require("../models");
 // const index = require("index.js")
 // const server = require("../server.js")
 
+//The route matches this route /api/posts
 router.get("/posts", function (req, res) {
   var query = {};
   if (req.query.user) {
@@ -14,45 +15,103 @@ router.get("/posts", function (req, res) {
 
 
 // POST route for saving a new post
+//The route matches this route /api/posts
 router.post("/posts", function (req, res) {
   db.Post.create(req.body).then(function (dbPost) {
     res.json(dbPost);
   });
 });
-module.exports = router;
+
 
 
 
 //PUT route for updating user profile email
-router.put("/api/update/email", function (req, res) {
-  var condition = req.body;//.usrProfileEmailUpdate;
-
-  db.User.update(req.body)
+//The route matches this route /api/update/email
+router.put("/update/email/", function (req, res) {
+  console.log(req.body.email);
+  // should console log the id of the logged in user
+  console.log(req.params.id);
+  db.User.update({
+    email: req.body.email
+  }, {
+    where: {
+      id: 3
+    }
+  })
     .then(function (dbUser) {
-      res.json(dbUser)
-    })
+      res.json(dbUser);
+    });
 });
 
+//PUT route for updating user profile password
+//The route matches this route /api/update/password
+router.put("/update/password/", function (req, res) {
+  // router.put("/update/password/:id", function (req, res) {
+  console.log("req.body.password" + req.body.password);
+  // should console log the id of the logged in user
+  console.log("req.params.id" + req.params.id);
+  db.User.update({
+    password: req.body.password
+  }, {
+    where: {
+      id: 1
+    }
+  })
+    .then(function (dbUser) {
+      res.json(dbUser);
+    });
+});
 
+//PUT route for updating user profile city
+//The route matches this route /api/update/city
+router.put("/update/city/", function (req, res) {
+  // router.put("/update/password/:id", function (req, res) {
+  console.log(req.body.city);
+  // should console log the id of the logged in user
+  console.log(req.params.id);
+  db.User.update({
+    city: req.body.city
+  }, {
+    where: {
+      id: 3
+    }
+  })
+    .then(function (dbUser) {
+      res.json(dbUser);
+    });
+});
 
+//PUT route for updating user profile state
+//The route matches this route /api/update/state
+router.put("/update/state/", function (req, res) {
+  // router.put("/update/password/:id", function (req, res) {
+  console.log(req.body.city);
+  // should console log the id of the logged in user
+  console.log(req.params.id);
+  db.User.update({
+    state: req.body.state
+  }, {
+    where: {
+      id: 3
+    }
+  })
+    .then(function (dbUser) {
+      res.json(dbUser);
+    });
+});
 
+// Route for getting Current Users info to be displayed on their Profile Page
+router.get("api/user/info", function(req, res) {
+  // gets from db
+  User.all(function(data) {
+    // turns res into obj
+    var hbsObject = {
+      User: data
+    };
+    console.log(hbsObject);
+    // sending obj to handlebars template
+    res.render("index", hbsObject);
+  });
+});
 
-
-
-
-
-
-
-  // console.log("Api Route condition" + condition);
-
-  // user.update({
-    // req.parms refers to url req . body is form info
-    // email: req.body.usrProfileEmailUpdate
-  // }, condition, function(result) {
-    // if (result.changedRows == 0) {
-      // If no rows were changed, then the ID must not exist, so 404
-      // return res.status(404).end();
-    // } else {
-      // res.status(200).end();
-
-
+module.exports = router;
