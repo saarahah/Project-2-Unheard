@@ -65,7 +65,7 @@ router.put("/update/password/", function (req, res) {
 
 //PUT route for updating user profile city
 //The route matches this route /api/update/city
-router.put("/update/city/", function (req, res) {
+router.put("/update/city/:id", function (req, res) {
   // router.put("/update/password/:id", function (req, res) {
   console.log(req.body.city);
   // should console log the id of the logged in user
@@ -74,7 +74,7 @@ router.put("/update/city/", function (req, res) {
     city: req.body.city
   }, {
     where: {
-      id: 3
+      id: req.params.id
     }
   })
     .then(function (dbUser) {
@@ -84,7 +84,7 @@ router.put("/update/city/", function (req, res) {
 
 //PUT route for updating user profile state
 //The route matches this route /api/update/state
-router.put("/update/state/", function (req, res) {
+router.put("/update/state/:id", function (req, res) {
   // router.put("/update/password/:id", function (req, res) {
   console.log(req.body.city);
   // should console log the id of the logged in user
@@ -93,7 +93,7 @@ router.put("/update/state/", function (req, res) {
     state: req.body.state
   }, {
     where: {
-      id: 3
+      id: req.params.id
     }
   })
     .then(function (dbUser) {

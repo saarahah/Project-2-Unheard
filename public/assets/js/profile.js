@@ -55,7 +55,7 @@ $("#submitBtnRegEmailUpdate").on("click", function (event) {
     );
 });
 
-// Submit Update Button for password
+// Submit Update Button for password Do this last as it needs to be hashed
 $("#submitBtnRegPasswordUpdate").on("click", function (event) {
     // Make sure to preventDefault on a submit event.
     console.log("Password Update test");
@@ -89,8 +89,9 @@ $("#submitBtnRegCityUpdate").on("click", function (event) {
         city: $("#usrProfileCityUpdate").val().trim(),
     };
     console.log(updateCity);
+    id = userId
     // Send the put request.
-    $.ajax("/api/update/city/", {
+    $.ajax("/api/update/city/" + id, {
         // change to get
         type: "PUT",
         data: updateCity
@@ -106,15 +107,14 @@ $("#submitBtnRegCityUpdate").on("click", function (event) {
 // Submit Update Button for state
 $("#submitBtnRegStateUpdate").on("click", function (event) {
     // Make sure to preventDefault on a submit event.
-    console.log("State Update test");
+    id = userId
     event.preventDefault();
     // packaging as object
     var updateState = {
         state: $("#usrProfileStateUpdate").val().trim(),
     };
-    console.log(updateState);
     // Send the put request.
-    $.ajax("/api/update/state/", {
+    $.ajax("/api/update/state/" + id, {
         // change to get
         type: "PUT",
         data: updateState
