@@ -1,96 +1,93 @@
-<div class="container-fluid">
-    <div class="row bg-dark">
-        <div class="col-md-8 p-0">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark pt-2">
-                <a class="navbar-brand ml-3" href="/">Auth with Passport</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-primary" href="/user/page2">Page Two</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/auth/logout">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-        <div class="col-md-4 text-right pt-2">
-            <a class="text-white pr-0 mr-3" href="/user/profile"><span class="userName"></span>
-                <i class="fas fa-user-circle fa-2x text-white mt-1 ml-2 mb-2"></i></a>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Drug Related Deaths USA</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Auth with Passport" />
+    <meta property="og:url" content="https://auth-passport.herokuapp.com" />
+    <meta property="og:image"
+        content="https://user-images.githubusercontent.com/40499942/79766002-661d0e00-82f5-11ea-933f-f8b021c9ab44.jpg" />
+    <meta name="description"
+        content="This is a ready to use boiler plate that uses Passport for User Authentication and MySQL with Sequelize for Data Storage." />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/superhero/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/d7973d9d11.js" crossorigin="anonymous"></script>
+    <title>Auth with Passport</title>
+    <meta name="google-site-verification" content="DPY1mP4M7-dVmCrGmkYVUs2UD0GcDVR-f9vdubVs30g" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiRFL7NTJFlRBr3YzrL_xH1Et3CYmHB_Q&callback=initMap"
+        defer></script>
+
+    <div class="container-fluid">
+        <div class="row bg-dark">
+            <div class="col-md-8 p-0">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark pt-2">
+                    <a class="navbar-brand ml-3" href="/">Auth with Passport</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-primary" href="/">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/user/page2">Page Two</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/auth/logout">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-md-4 text-right pt-2">
+                <a class="text-white pr-0 mr-3" href="/user/profile"><span class="userName"></span>
+                    <i class="fas fa-user-circle fa-2x text-white mt-1 ml-2 mb-2"></i></a>
+            </div>
         </div>
     </div>
-</div>
 
-
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="DPY1mP4M7-dVmCrGmkYVUs2UD0GcDVR-f9vdubVs30g" />
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/style.css">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"
-    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-<script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiRFL7NTJFlRBr3YzrL_xH1Et3CYmHB_Q&callback=initMap&libraries=&v=weekly"
-    defer></script>
-
-<style type="text/css">
-    /* Set the size of the div element that contains the map */
-    #map {
-        height: 100%;
-    }
-
-    html,
-    body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
-</style>
-
-<script>
-    (function (exports) {
-        "use strict";
-
-        function initMap() {
-            exports.map = new google.maps.Map(document.getElementById("map"), {
-                center: {
-                    lat: 37.0902,
-                    lng: 95.7129
-                },
-                zoom: 4
-            });
+    <style type="text/css">
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 90%;
         }
 
-        exports.initMap = initMap;
-    })((this.window = this.window || {}));
-</script>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
 </head>
+
 <div id="map"></div>
 
 <script>
     function initMap() {
 
-        var harLatlng = new google.maps.LatLng(42.3740937, -71.1165522)
+        var usaLatlng = new google.maps.LatLng(39.381266, -97.922211)
         var mapOptions = {
             zoom: 4,
-            center: harLatlng
+            center: usaLatlng
         }
         var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
         var marker = new google.maps.Marker({
-            position: harLatlng,
+            position: usaLatlng,
+
 
         });
+
 
         var statesArray = [
             {
@@ -352,10 +349,31 @@
             const temp = new google.maps.LatLng(statesArray[i].lat, statesArray[1].lng)
             markerArray.push(new google.maps.Marker({
                 position: new google.maps.LatLng(statesArray[i].lat, statesArray[i].lng),
+                title: 'Click to zoom',
                 map: map,
-                title: 'Click to zoom'
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                icon: circle
+                
             }))
+            var circle = {
+                    path: google.maps.SymbolPath.CIRCLE,
+                    fillColor: 'white',
+                    fillOpacity: 0.4,
+                    scale: 7,
+                    strokeColor: 'red',
+                    strokeWeight: 5
+                }
+
         }
+
+        // function drop() {
+        //     for (let i = 0; i < statesArray.length; i++) {
+
+        //        (markerArray[1], i * 200);
+        //     }
+        // }
+
 
     }
 </script>
