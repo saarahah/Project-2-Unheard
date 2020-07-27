@@ -35,11 +35,12 @@
         </div>
     </div>
 </div>
+
 <div class="form-group-usrUpdate">
     <div class="row">
         <div class="col-md-6 mx-auto text-left">
             {{!-- Allows user to view their email --}}
-            <label for="usrProfileEmail" id="usrProfileEmail">Current Email</label><p>{{email}}</span>
+            <label for="usrProfileEmail" id="usrProfileEmail">Current Email</label><span>{{email}}</span>
             <hr>
             {{!-- Allows user to view their City --}}
             <label for="usrProfileCity" id ="usrProfileCity">Current City</label><span>{{city}}</span>
@@ -55,10 +56,10 @@
             <button id="submitBtnRegEmailUpdate" type="submit" class="btn btn-primary">Update Email</button>
             <hr>
             {{!-- Allows user to change their password --}}
-            <label for="usrProfilePasswordUpdate">Password</label>
+            {{!-- <label for="usrProfilePasswordUpdate">Password</label>
             <input type="password" class="form-control" id="usrProfilePasswordUpdate">
             <button id="submitBtnRegPasswordUpdate" type="submit" class="btn btn-primary">Update Password</button>
-            <hr>
+            <hr> --}}
             {{!-- Allows user to change their city --}}
             <label for="usrProfileCityUpdate">City</label>
             <input type="input" class="form-control" id="usrProfileCityUpdate">
