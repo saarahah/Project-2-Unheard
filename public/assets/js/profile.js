@@ -9,20 +9,20 @@ const usrProfileStateUpdate = document.querySelector("#usrProfileStateUpdate");
 var usrInfoList = $("tbody");
 var usrInfoContainer = $(".usrInfo-container");
 
-    // Get current User and display email information.
-    // Here you can display any User information coming from the server.
-    const userName = document.querySelector(".userName");
-    let userId = null;
+// Get current User and display email information.
+// Here you can display any User information coming from the server.
+const userName = document.querySelector(".userName");
+let userId = null;
 
-    fetch("/auth/user")
-        .then((response) => response.json())
-        .then((data) => {
-            userId = data.id;
-            userName.textContent = data.email;
-            console.log("userID is " + userId);
-            return userId;
-        })
-        .catch((err) => console.log(err))
+fetch("/auth/user")
+    .then((response) => response.json())
+    .then((data) => {
+        userId = data.id;
+        userName.textContent = data.email;
+        console.log("userID is " + userId);
+        return userId;
+    })
+    .catch((err) => console.log(err))
 
 
 
@@ -67,7 +67,7 @@ $("#submitBtnRegPasswordUpdate").on("click", function (event) {
     console.log(updatePassword);
     // Send the put request.
     $.ajax("/api/update/password/", {
-    // $.ajax("/api/update/password/", {
+        // $.ajax("/api/update/password/", {
         // change to get
         type: "PUT",
         data: updatePassword
@@ -141,25 +141,15 @@ $(document).ready(function () {
             userId = data.id;
             id = userId
             userName.textContent = data.email;
-            var newTr = $("<tr>");
-            newTr.append("<td>" + data.email + "</td>");
-
-
             // return userId;
-        }).then (value => {
+        })
+        .then(value => {
             console.log(".then console log userId " + userId);
-            //We now have the user ID in mySQL.  Need to figure out how to get their data from the table now
+            //We now have the user data in mySQL.  Need to figure out how to get their data from the table now
             console.log(".then userId test = " + id);
             $.ajax("/api/user/info/" + id, {
                 type: "GET",
                 data: userId
-            }
-
-        
-            //below code appends info to the html
-
-            )
-            
+            })
         })
-
 });
