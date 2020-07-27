@@ -40,13 +40,13 @@ function initMap() {
       let deaths = states[i].deaths;
       console.log("this is deaths " + deaths);
       if (deaths < 100) {
-        deathScale = 5;
+        deathScale = 1;
       } else if (deaths > 100 && deaths < 500) {
-        deathScale = 30;
+        deathScale =10;
       } else if (deaths > 500 && deaths < 2000) {
-        deathScale = 50;
+        deathScale = 20
       } else if (deaths > 2000 && deaths < 20000) {
-        deathScale = 70;
+        deathScale = 40;
       }
 
       console.log("this is death scale " + deathScale);
