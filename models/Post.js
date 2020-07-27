@@ -12,6 +12,13 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       len: [1],
     },
+    lat: {
+      type: DataTypes.FLOAT,
+    },
+
+    long: {
+      type: DataTypes.FLOAT,
+    },
   });
 
   Post.associate = function (models) {
