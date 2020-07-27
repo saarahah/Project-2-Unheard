@@ -9,12 +9,12 @@ function initMap() {
     zoom: 4,
     center: usaLatlng,
   };
-  var iconBase =
-    "https://developers.google.com/maps/documentation/javascript/examples/full/images/";
+  // var iconBase =
+  //   "https://developers.google.com/maps/documentation/javascript/examples/full/images/";
 
   var icons = {
     post: {
-      icon: iconBase + "library_maps.png",
+      icon: "https://storage.googleapis.com/support-kms-prod/SNP_2752068_en_v0",
     },
   };
 
@@ -49,8 +49,8 @@ function initMap() {
         // snippet: response[0].body,
         map: map,
         zIndex: 600,
-        // draggable: true,
-        // animation: google.maps.Animation.DROP,
+        draggable: false,
+        animation: google.maps.Animation.DROP,
         icon: icons.post.icon,
       });
       marker.addListener("click", function () {
@@ -96,10 +96,10 @@ function initMap() {
       // }
       new google.maps.Marker({
         position: new google.maps.LatLng(states[i].lat, states[i].long),
-        title: "Click to zoom",
+        
         map: map,
-        // draggable: true,
-        // animation: google.maps.Animation.DROP,
+        draggable: false,
+        animation: google.maps.Animation.DROP,
         icon: circle,
       });
     }
