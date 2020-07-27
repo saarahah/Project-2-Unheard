@@ -12,5 +12,8 @@ html, body {
 body {
     background-image: url(../../images/Drugs.jpg);
     background-size: cover;
-    
+    background-position: center;
+    background-repeat: repeat-y;
+    position: relative;
+    top: 0;
 }

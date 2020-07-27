@@ -133,6 +133,7 @@ $("#submitBtnRegStateUpdate").on("click", function (event) {
 $(document).ready(function () {
     var userName = document.querySelector(".userName");
     let userId = null;
+    let userEmail = null;
 
     fetch("/auth/user")
         .then((response) => response.json())
@@ -141,13 +142,14 @@ $(document).ready(function () {
             userId = data.id;
             id = userId
             userName.textContent = data.email;
+            userEmail = userName.textContent = data.email;
+            console.log("User Email is " + userEmail);
             // return userId;
         })
         .then(value => {
-            console.log(".then console log userId " + userId);
+            console.log(".then console log userId " );
             //We now have the user data in mySQL.  Need to figure out how to get their data from the table now
-            console.log(".then userId test = " + id);
-            $.ajax("/api/user/info/" + id, {
+            $.ajax("/user/profile/", {
                 type: "GET",
                 data: userId
             })

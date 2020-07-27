@@ -114,7 +114,8 @@ router.get("/user/info/:id", function (req, res) {
       id: req.params.id,
     },
   }).then(function (dbUser) {
-    res.render("profile", { user_data: dbUser });
+    // res.render("profile", { user_data: dbUser });
+    res.render("profile", { user_data: db.User });
 
     // res.json(dbUser);
     // console.log(dbUser);
