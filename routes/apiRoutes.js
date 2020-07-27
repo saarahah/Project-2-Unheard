@@ -1,9 +1,5 @@
 const router = require("express").Router();
-// const auth = require("../middleware/api");
 var db = require("../models");
-// const index = require("index.js")
-// const server = require("../server.js")
-
 router.get("/posts", function (req, res) {
   db.Post.findAll().then(function (dbPost) {
     //send back all db posts as json
@@ -30,12 +26,16 @@ router.put("/api/update/email", function (req, res) {
 router.get("/deaths", function (req, res) {
   //query deaths table for death data
   db.Death.findAll({
+    attributes: ["state", "lat", "long", "deaths"],
     where: {
       year: 2019
     }
-  }).then((results) => {
-    res.json(results)
+  }).then(function (results) {
+    res.json(results);
   });
 });
+// for (let index = 0; index < stateArray.length; index++) {
+//   db.Death.update({lat: })
+// }
 
 module.exports = router;
