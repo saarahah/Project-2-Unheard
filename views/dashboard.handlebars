@@ -2,7 +2,7 @@
         <div class="row bg-dark">
             <div class="col-md-8 p-0">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark pt-2">
-                    <a class="navbar-brand ml-3" href="/">Auth with Passport</a>
+                    <a class="navbar-brand ml-3" href="/">Drug Related Deaths USA</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -13,7 +13,7 @@
                                 <a class="nav-link text-primary" href="/">Dashboard</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/user/page2">Page Two</a>
+                                <a class="nav-link" href="/user/page2">map</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/auth/logout">Logout</a>
@@ -23,14 +23,14 @@
                 </nav>
             </div>
             <div class="col-md-4 text-right pt-2">
-                <a class="text-white pr-0 mr-3" href="/user/profile"><span class="userName"></span>
-                    <i class="fas fa-user-circle fa-2x text-white mt-1 ml-2 mb-2"></i></a>
+                <a class="text-info pr-0 mr-3" href="/user/profile"><span class="userName"></span>
+                    <i class="fas fa-user-circle fa-2x text-info mt-1 ml-2 mb-2"></i></a>
             </div>
         </div>
     </div>
     <div class="container mt-4">
         <div class="row">
-            <div class="col-md-4 mx-auto text-center">
+            <div class="col-md-4 mx-auto text-center text-info">
                 <h1>User Dashboard</h1>
                 <p>{{this.id}}</p>
                 <p>{{this.email}}</p>
@@ -40,14 +40,14 @@
     </div>
 
 
-	<div class="row">
+	<div class="row text-info">
 			<div class="col-md-6 col-md-offset-3">
 				<form id="story">
 					<div class="form-group">
 						<label for="title">Title:</label>
 						<input placeholder="Post Title" type="text" class="form-control" id="title">
 						<br />
-						<label for="body">Body:</label>
+						<label for="body">Story:</label>
 						<textarea placeholder="Post Body" class="form-control" rows="10" id="body"></textarea>
 						<div class="form-group">
 							{{!-- <label for="category">Select Author:</label>
@@ -55,7 +55,7 @@
   						</select> --}}
 						</div>
 						<br />
-						<button type="submit" class="btn btn-success submit">Submit</button>
+						<button type="submit" class="btn btn-info submit">Submit</button>
 					</div>
 				</form>
 			</div>
