@@ -35,7 +35,7 @@ function initMap() {
       // console.log("parsed ", parseInt([i].lat));
       //  console.log("not parsed ", response[i].long);
 
-      var contentString = JSON.stringify(response[0].body);
+      var contentString = response[0].body;
 
       var infowindow = new google.maps.InfoWindow({
         content: contentString,
@@ -45,7 +45,7 @@ function initMap() {
 
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(response[i].lat, response[i].long),
-        // title: JSON.stringify(response[0].title),
+        title: response[0].title,
         // snippet: response[0].body,
         map: map,
         zIndex: 600,
@@ -53,11 +53,35 @@ function initMap() {
         animation: google.maps.Animation.DROP,
         icon: icons.post.icon,
       });
-      marker.addListener("click", function () {
+      google.maps.event.addListener(marker, "click", function () {
         infowindow.open(map, marker);
       });
+
+      google.maps.event.addListener(map, "click", function () {
+        infowindow.close();
+      });
+
+      google.maps.event.addListener(infowindow, "domready", function () {
+        var iwBackground = iwOuter.prev();
+
+        var iwOuter = $(".gm-style-iw");
+
+        var iwBackground = iwOuter.prev();
+
+        iwBackground.children(":nth-child(2)").css({
+          background: "#252525",
+        });
+
+        var iwmain = iwBackground.children(":nth-child(2)");
+
+        iwBackground.children(":nth-child(4)").css({
+          display: "none",
+        });
+
+        var iwCloseBtn = iwOuter.next();
+      });
     }
-    console.log("here is the title", response[0].title);
+    google.maps.event.addDomListener(window, "load", initMap);
   });
 
   $.get("/api/deaths", (deathData) => {
@@ -96,7 +120,7 @@ function initMap() {
       // }
       new google.maps.Marker({
         position: new google.maps.LatLng(states[i].lat, states[i].long),
-        
+
         map: map,
         draggable: false,
         animation: google.maps.Animation.DROP,

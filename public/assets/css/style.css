@@ -14,3 +14,33 @@ body {
     background-size: cover;
     
 }
+
+    /*style the box*/  
+    .gm-style .gm-style-iw {
+        background-color: #252525 !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 60% !important;
+        height: 100% !important;
+        min-height: 120px !important;
+        padding-top: 10px;
+        display: block !important;
+     }    
+ 
+     /*style the p tag*/
+     .gm-style .gm-style-iw #google-popup p{
+        padding: 10px;
+     }
+ 
+    /*style the arrow*/
+    .gm-style div div div div div div div div {
+        background-color: #252525 !important;
+        padding: 0;
+        margin: 0;
+        padding: 0;
+        top: 0;
+        color: #fff;
+        font-size: 16px;
+    }
+    
+   

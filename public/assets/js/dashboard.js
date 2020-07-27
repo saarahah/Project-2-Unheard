@@ -8,10 +8,9 @@ $(document).ready(function () {
   var lat = null;
   var long = null;
 
-  navigator.geolocation.getCurrentPosition(function(position){
-   lat = position.coords.latitude;
-   long = position.coords.longitude;
-
+  navigator.geolocation.getCurrentPosition(function (position) {
+    lat = position.coords.latitude;
+    long = position.coords.longitude;
   });
 
   $(storyForm).on("submit", handleFormSubmit);
@@ -28,7 +27,7 @@ $(document).ready(function () {
       body: bodyInput.val().trim(),
       UserId: userId,
       lat: lat,
-      long: long
+      long: long,
     };
     console.log("this is " + JSON.stringify(newPost));
     submitPost(newPost);
@@ -40,6 +39,5 @@ $(document).ready(function () {
         window.location.href = "/user/page2";
       });
     }
-
   }
 });
