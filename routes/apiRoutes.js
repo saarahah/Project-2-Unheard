@@ -46,7 +46,9 @@ router.put("/update/email/:id", function (req, res) {
 
 //PUT route for updating user profile password
 //The route matches this route /api/update/password
+//The route matches this route /auth/update/password
 router.put("/update/password/", function (req, res) {
+// router.put("/update/password/", function (req, res) {
   // router.put("/update/password/:id", function (req, res) {
   console.log("req.body.password" + req.body.password);
   // should console log the id of the logged in user
@@ -102,17 +104,15 @@ router.put("/update/state/:id", function (req, res) {
 });
 
 // Route for getting Current Users info to be displayed on their Profile Page
-router.get("api/user/info", function(req, res) {
+router.get("api/user/info/:id", function(req, res) {
   // gets from db
-  User.all(function(data) {
-    // turns res into obj
-    var hbsObject = {
-      User: data
-    };
-    console.log(hbsObject);
-    // sending obj to handlebars template
-    res.render("index", hbsObject);
-  });
+    db.User.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(function (dbUser) {
+      res.json(dbUser);
 });
 
 module.exports = router;
