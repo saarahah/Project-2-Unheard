@@ -1,5 +1,16 @@
-/* body {
+
+#map {
+    height: 90%;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
     background-image: url(../../images/Drugs.jpg);
     background-size: cover;
     
-} */
+}

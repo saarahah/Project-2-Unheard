@@ -1,18 +1,15 @@
 const router = require("express").Router();
-// const auth = require("../middleware/api");
 var db = require("../models");
 // const index = require("index.js")
 // const server = require("../server.js")
 
 //The route matches this route /api/posts
 router.get("/posts", function (req, res) {
-  var query = {};
-  if (req.query.user) {
-    query.UserId = req.query.user;
-  }
+  db.Post.findAll().then(function (dbPost) {
+    //send back all db posts as json
+    //send posts out
+  });
 });
-
-
 
 // POST route for saving a new post
 //The route matches this route /api/posts
@@ -21,7 +18,6 @@ router.post("/posts", function (req, res) {
     res.json(dbPost);
   });
 });
-
 
 
 
