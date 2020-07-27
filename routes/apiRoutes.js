@@ -110,8 +110,10 @@ router.get("/user/info/:id", function(req, res) {
       }
     })
     .then(function (dbUser) {
-      res.json(dbUser);
-      console.log(dbUser);
+      res.render("profile", {user_data: dbUser});
+  
+      // res.json(dbUser);
+      // console.log(dbUser);
 });
 })
 module.exports = router;
