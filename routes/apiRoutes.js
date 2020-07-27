@@ -6,6 +6,7 @@ var db = require("../models");
 //The route matches this route /api/posts
 router.get("/posts", function (req, res) {
   db.Post.findAll().then(function (dbPost) {
+    res.json(dbPost);
     //send back all db posts as json
     //send posts out
   });
@@ -132,5 +133,9 @@ router.get("/deaths", function (req, res) {
     res.json(results);
   });
 });
+
+
+
+
 
 module.exports = router;
