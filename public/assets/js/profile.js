@@ -137,27 +137,29 @@ $(document).ready(function () {
     fetch("/auth/user")
         .then((response) => response.json())
         .then((data) => {
+            console.log("2nd then data - " + data.email);
             userId = data.id;
             id = userId
             userName.textContent = data.email;
+            var newTr = $("<tr>");
+            newTr.append("<td>" + data.email + "</td>");
+
+
             // return userId;
-            
         }).then (value => {
             console.log(".then console log userId " + userId);
             //We now have the user ID in mySQL.  Need to figure out how to get their data from the table now
             console.log(".then userId test = " + id);
-            $.get("/api/user/info" + id, function(data) {
-                
-            });
+            $.ajax("/api/user/info/" + id, {
+                type: "GET",
+                data: userId
+            }
 
         
             //below code appends info to the html
 
-        }
             )
-        // .catch((err) => console.log(err))
-        
-    // console.log("Doc Ready User Id is - " + userId)
-    // console.log("Doc Ready Username  is - " + document.querySelector(".userName"))
+            
+        })
 
 });

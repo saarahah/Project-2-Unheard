@@ -104,15 +104,18 @@ router.put("/update/state/:id", function (req, res) {
 });
 
 // Route for getting Current Users info to be displayed on their Profile Page
-router.get("api/user/info/:id", function(req, res) {
+router.get("/user/info/:id", function(req, res) {
   // gets from db
+  console.log("id is  ******" + req.params.id);
     db.User.findOne({
+      
       where: {
         id: req.params.id
       }
     })
     .then(function (dbUser) {
       res.json(dbUser);
+      console.log(dbUser);
 });
-
+})
 module.exports = router;
