@@ -5,28 +5,6 @@ const usrProfileEmailUpdate = document.querySelector("#usrProfileEmailUpdate");
 const usrProfileCityUpdate = document.querySelector("#usrProfileCityUpdate");
 const usrProfileStateUpdate = document.querySelector("#usrProfileStateUpdate");
 
-
-// Submit Update Button for email
-$("#submitBtnRegEmailUpdate").on("click", function (event) {
-  // Make sure to preventDefault on a submit event.
-  console.log("Email Update test");
-  event.preventDefault();
-  // packaging as object
-  var updateEmail = {
-    email: $("#usrProfileEmailUpdate").val().trim(),
-  };
-  console.log(updateEmail);
-  // Send the put request.
-  $.ajax("/api/update/email", {
-    // change to get
-    type: "PUT",
-    data: updateEmail,
-  }).then(function () {
-    console.log("Updated Users Email" + updateEmail);
-    // Reload the page to get the updated list
-    location.reload();
-  });
-
 // References to the email, city and state
 var usrInfoList = $("tbody");
 var usrInfoContainer = $(".usrInfo-container");
@@ -79,7 +57,7 @@ $("#submitBtnRegEmailUpdate").on("click", function (event) {
 
 // Submit Update Button for password Do this last as it needs to be hashed
 $("#submitBtnRegPasswordUpdate").on("click", function (event) {
-  // Make sure to preventDefault on a submit event.
+    // Make sure to preventDefault on a submit event.
     console.log("Password Update test");
     event.preventDefault();
     // packaging as object
@@ -104,7 +82,6 @@ $("#submitBtnRegPasswordUpdate").on("click", function (event) {
 
 // Submit Update Button for city
 $("#submitBtnRegCityUpdate").on("click", function (event) {
-
     // Make sure to preventDefault on a submit event.
     console.log("City Update test");
     event.preventDefault();
@@ -130,7 +107,6 @@ $("#submitBtnRegCityUpdate").on("click", function (event) {
 
 // Submit Update Button for state
 $("#submitBtnRegStateUpdate").on("click", function (event) {
-
     // Make sure to preventDefault on a submit event.
     id = userId
     event.preventDefault();
@@ -176,5 +152,4 @@ $(document).ready(function () {
                 data: userId
             })
         })
-
 });
