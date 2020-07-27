@@ -24,6 +24,42 @@ function initMap() {
   // console.log("markers " + markerArray);
   // console.log("states " + states);
   //get the data from database
+  // var storyMarkerArray = [];
+  $.get("/api/posts").then((response) => {
+    console.log("these are the response", response);
+    // push element in
+
+    for (let i = 0; i < response.length; i++) {
+      // const temp = new google.maps.LatLng(response[i].lat, response[i].long);
+      // storyMarkerArray.push(
+      // console.log("parsed ", parseInt([i].lat));
+      //  console.log("not parsed ", response[i].long);
+
+      var contentString = JSON.stringify(response[0].body);
+
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString,
+      });
+
+      console.log("this is the cstring", contentString);
+
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(response[i].lat, response[i].long),
+        // title: JSON.stringify(response[0].title),
+        // snippet: response[0].body,
+        map: map,
+        zIndex: 600,
+        // draggable: true,
+        // animation: google.maps.Animation.DROP,
+        icon: icons.post.icon,
+      });
+      marker.addListener("click", function () {
+        infowindow.open(map, marker);
+      });
+    }
+    console.log("here is the title", response[0].title);
+  });
+
   $.get("/api/deaths", (deathData) => {
     console.log(deathData);
     //push element in
@@ -64,32 +100,8 @@ function initMap() {
         map: map,
         // draggable: true,
         // animation: google.maps.Animation.DROP,
-        icon: circle
+        icon: circle,
       });
     }
-  });
-
-  // var storyMarkerArray = [];
-  $.get("/api/posts").then((response) => {
-    console.log("these are the response", response);
-    // push element in
-
-    for (let i = 0; i < response.length; i++) {
-      // const temp = new google.maps.LatLng(response[i].lat, response[i].long);
-      // storyMarkerArray.push(
-      // console.log("parsed ", parseInt([i].lat));
-      console.log("not parsed ", response[i].long);
-      new google.maps.Marker({
-        position: new google.maps.LatLng(response[i].lat, response[i].long),
-        title: "Click to zoom",
-        map: map,
-        // draggable: true,
-        // animation: google.maps.Animation.DROP,
-        icon: icons.post.icon,
-      });
-      // );
-    }
-
-    console.log(JSON.stringify(response));
   });
 }
