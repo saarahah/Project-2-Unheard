@@ -19,11 +19,11 @@ var usrInfoContainer = $(".usrInfo-container");
         .then((data) => {
             userId = data.id;
             userName.textContent = data.email;
+            console.log("userID is " + userId);
             return userId;
         })
         .catch((err) => console.log(err))
 
-    console.log("2 userid is - " + userId)
 
 
 
@@ -67,6 +67,7 @@ $("#submitBtnRegPasswordUpdate").on("click", function (event) {
     console.log(updatePassword);
     // Send the put request.
     $.ajax("/api/update/password/", {
+    // $.ajax("/api/update/password/", {
         // change to get
         type: "PUT",
         data: updatePassword
@@ -129,30 +130,34 @@ $("#submitBtnRegStateUpdate").on("click", function (event) {
 
 
 // Code to display current user email
-// $(document).ready(function () {
-//     function getUserInfo() {
-//         $ajax("api/user/info", function (data) {
-//             var rowsToAdd = [];
-//             for (var i = 0; i < data.length; i++) {
-//                 rowsToAdd.push(createAuthorRow(data[i]));
-//             }
-//             renderUserList(rowsToAdd);
-//             nameInput.val("");
-//         });
-//     }
+$(document).ready(function () {
+    var userName = document.querySelector(".userName");
+    let userId = null;
 
-//     // A function for rendering the list of authors to the page
-//     function renderUserList(rows) {
-//         usrInfoList.children().not(":last").remove();
-//         usrInfoContainer.children(".alert").remove();
-//         if (rows.length) {
-//             console.log(rows);
-//             authorList.prepend(rows);
-//         }
-//         else {
-//             renderEmpty();
-//         }
-//     }
+    fetch("/auth/user")
+        .then((response) => response.json())
+        .then((data) => {
+            userId = data.id;
+            id = userId
+            userName.textContent = data.email;
+            // return userId;
+            
+        }).then (value => {
+            console.log(".then console log userId " + userId);
+            //We now have the user ID in mySQL.  Need to figure out how to get their data from the table now
+            console.log(".then userId test = " + id);
+            $.get("/api/user/info" + id, function(data) {
+                
+            });
 
+        
+            //below code appends info to the html
 
-// };
+        }
+            )
+        // .catch((err) => console.log(err))
+        
+    // console.log("Doc Ready User Id is - " + userId)
+    // console.log("Doc Ready Username  is - " + document.querySelector(".userName"))
+
+});
