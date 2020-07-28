@@ -38,3 +38,10 @@ width: 100%;
 #reg{
     margin-top: -200px;
 }
+
+.form-group{
+    
+    padding-left: 70%;
+    margin-right: -300px;
+    /* padding-right: -200px; */
+}
