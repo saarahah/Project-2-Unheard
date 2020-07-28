@@ -69,3 +69,17 @@ form{
     background-color: black;
 }
 
+=======
+.gm-style{
+    color: black;
+}
+/* 
+.text-success{
+    color:white;
+} */
+#registerText{
+    color: blueviolet;
+}
+#registerA{
+    color: cyan;
+}
