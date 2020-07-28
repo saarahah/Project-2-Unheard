@@ -68,4 +68,9 @@ form{
 .text-success{
     color:white;
 } */
-
+#registerText{
+    color: blueviolet;
+}
+#registerA{
+    color: cyan;
+}
