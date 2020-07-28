@@ -10,10 +10,62 @@ html, body {
 }
 
 body {
-    background-image: url(../../images/Drugs.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: repeat-y;
-    position: relative;
-    top: 0;
+    background-color: black;
+    
 }
+
+.logo{
+   margin-top: -210px;
+padding-bottom: 85%;
+/* padding-left: -50px;
+padding-right: 50%; */
+width: 100%;
+  background-image: url("../../images/logo2.png"); 
+  background-position: center center;
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-size: 70%;
+  background-clip: padding-box;
+   
+}
+
+.alertAppend{
+    
+    margin: auto;
+    margin-top: -200px;
+}
+
+#reg{
+    margin-top: -200px;
+}
+
+.alertAppendReg{
+    
+    padding-left: 20%;
+    margin-right: -100px;
+    /* padding-right: -200px; */
+}
+
+#dash{
+    padding-left: 60%;
+    margin-right: -250px;
+
+}
+form{
+    color: white;
+}
+
+#footer{
+  
+  background-color:white;
+  color: black;
+  opacity: 20%;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+/* 
+.text-success{
+    color:white;
+} */
+

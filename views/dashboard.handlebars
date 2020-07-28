@@ -31,7 +31,7 @@
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-4 mx-auto text-center text-info">
-                <h1>User Dashboard</h1>
+                <h1>Tell Your Story</h1>
                 <p>{{this.id}}</p>
                 <p>{{this.email}}</p>
 
@@ -43,7 +43,7 @@
 	<div class="row text-info">
 			<div class="col-md-6 col-md-offset-3">
 				<form id="story">
-					<div class="form-group">
+					<div class="form-group" id = "dash">
 						<label for="title">Title:</label>
 						<input placeholder="Post Title" type="text" class="form-control" id="title">
 						<br />
@@ -54,8 +54,11 @@
 							<select class="form-control" id="author">
   						</select> --}}
 						</div>
-						<br />
+						<br>
 						<button type="submit" class="btn btn-info submit">Submit</button>
+                        <br>
+                        <br>
+                        <button id="deletePost" class="btn btn-info submit" style="display:none">Delete</button>
 					</div>
 				</form>
 			</div>

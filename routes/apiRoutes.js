@@ -6,7 +6,19 @@ var db = require("../models");
 //The route matches this route /api/posts
 router.get("/posts", function (req, res) {
   db.Post.findAll().then(function (dbPost) {
-   res.json(dbPost);
+    res.json(dbPost);
+    //send back all db posts as json
+    //send posts out
+  });
+});
+
+//The route matches this route /api/posts
+router.get("/posts/:userId", function (req, res) {
+  console.log("get post by user:", req.params)
+  db.Post.findOne({where:{UserId:req.params.userId}}).then(function (dbPost) {
+    res.json(dbPost);
+  
+    //send back all db posts as json
     //send posts out
   });
 });
@@ -15,6 +27,7 @@ router.get("/posts", function (req, res) {
 //The route matches this route /api/posts
 router.post("/posts", function (req, res) {
   db.Post.create(req.body).then(function (dbPost) {
+    console.log("dbPost", dbPost);
     res.json(dbPost);
   });
 });
@@ -133,5 +146,9 @@ router.get("/deaths", function (req, res) {
     res.json(results);
   });
 });
+
+
+
+
 
 module.exports = router;
