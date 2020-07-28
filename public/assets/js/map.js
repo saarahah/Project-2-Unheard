@@ -112,17 +112,23 @@ function initMap() {
 
       let deaths = states[i].deaths;
       // console.log("this is deaths " + deaths);
-      if (deaths < 100) {
-        deathScale = 1;
-        deathColor = "yellow";
-      } else if (deaths > 100 && deaths < 500) {
-        deathScale = 10;
-        deathColor = "orange";
-      } else if (deaths > 500 && deaths < 2000) {
+      if (deaths < 800) {
+        deathScale = 15;
+        deathColor = "blue";
+      } else if (deaths > 800 && deaths < 1500) {
         deathScale = 20;
-        deathColor = "red";
-      } else if (deaths > 2000 && deaths < 20000) {
+        deathColor = "green";
+      } else if (deaths > 1500 && deaths < 20000) {
+        deathScale = 25;
+        deathColor = "yellow";
+      } else if (deaths > 20000 && deaths < 30000) {
+        deathScale = 30;
+        deathColor = "orange";
+      } else if (deaths > 30000 && deaths < 40000) {
         deathScale = 40;
+        deathColor = "red";
+      } else if (deaths > 40000 && deaths < 70000) {
+        deathScale = 50;
         deathColor = "purple";
       }
 
