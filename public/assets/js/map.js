@@ -2,6 +2,7 @@
 let states = [];
 let deathScale = 0;
 let response = [];
+var deathColor;
 
 function initMap() {
   var usaLatlng = new google.maps.LatLng(39.381266, -97.922211);
@@ -79,21 +80,25 @@ function initMap() {
       // console.log("this is deaths " + deaths);
       if (deaths < 100) {
         deathScale = 1;
+        deathColor = "yellow";
       } else if (deaths > 100 && deaths < 500) {
         deathScale = 10;
+        deathColor = "orange";
       } else if (deaths > 500 && deaths < 2000) {
         deathScale = 20;
+        deathColor = "red";
       } else if (deaths > 2000 && deaths < 20000) {
         deathScale = 40;
+        deathColor = "purple";
       }
 
       // console.log("this is death scale " + deathScale);
       var circle = {
         path: google.maps.SymbolPath.CIRCLE,
-        fillColor: "red",
+        fillColor: deathColor,
         fillOpacity: 0.2,
         scale: deathScale,
-        strokeColor: "red",
+        strokeColor: deathColor,
         strokeWeight: 0,
       };
       // }
