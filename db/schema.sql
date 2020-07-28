@@ -2,7 +2,7 @@ CREATE DATABASE DB_DATABASE;
 
 USE DB_DATABASE;
 
-CREATE TABLE user
+CREATE TABLE users
 (
 	id int NOT NULL AUTO_INCREMENT,
 	email varchar(255) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE user
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE blog
+CREATE TABLE posts
 (
 	id int NOT NULL AUTO_INCREMENT,
 	story text(65535) NOT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE blog
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE death
+CREATE TABLE deaths
 (
 	id int NOT NULL AUTO_INCREMENT,
 	state varchar(2) NOT NULL,
