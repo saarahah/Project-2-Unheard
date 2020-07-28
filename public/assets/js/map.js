@@ -28,17 +28,21 @@ function initMap() {
   $.get("/api/posts").then((response) => {
     console.log("these are the response", response);
     // push element in
-
+    var infoWindowarray=[]
     for (let i = 0; i < response.length; i++) {
       // const temp = new google.maps.LatLng(response[i].lat, response[i].long);
       // storyMarkerArray.push(
       // console.log("parsed ", parseInt([i].lat));
       //  console.log("not parsed ", response[i].long);
 
-      var contentString = response[0].body;
 
-      var infowindow = new google.maps.InfoWindow({
+      var contentString = JSON.stringify(response[i].body);
+
+
+      infoWindowarray[i] = new google.maps.InfoWindow({
         content: contentString,
+        maxWidth: "150px"
+        
       });
 
       console.log("this is the cstring", contentString);
@@ -53,8 +57,10 @@ function initMap() {
         animation: google.maps.Animation.DROP,
         icon: icons.post.icon,
       });
-      google.maps.event.addListener(marker, "click", function () {
-        infowindow.open(map, marker);
+
+      marker.addListener("click", function () {
+
+        infoWindowarray[i].open(map, this);
       });
 
       google.maps.event.addListener(map, "click", function () {
