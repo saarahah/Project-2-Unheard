@@ -29,7 +29,7 @@ function initMap() {
   $.get("/api/posts").then((response) => {
     console.log("these are the response", response);
     // push element in
-    var infoWindowarray=[]
+    var infoWindowarray = []
     for (let i = 0; i < response.length; i++) {
       // const temp = new google.maps.LatLng(response[i].lat, response[i].long);
       // storyMarkerArray.push(
@@ -41,7 +41,7 @@ function initMap() {
       infoWindowarray[i] = new google.maps.InfoWindow({
         content: contentString,
         maxWidth: "150px"
-        
+
       });
 
       console.log("this is the cstring", contentString);
@@ -104,7 +104,7 @@ function initMap() {
       // }
       new google.maps.Marker({
         position: new google.maps.LatLng(states[i].lat, states[i].long),
-        
+
         map: map,
         draggable: false,
         animation: google.maps.Animation.DROP,

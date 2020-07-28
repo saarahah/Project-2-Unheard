@@ -10,11 +10,28 @@ html, body {
 }
 
 body {
-    background-image: url(../../images/Drugs.jpg);
-    background-size: cover;
+    background-color: black;
     
 }
-.gm-style .gm-style-iw-c{
-    color: black;
- 
+
+.logo{
+   margin-top: -210px;
+padding-bottom: 85%;
+/* padding-left: -50px;
+padding-right: 50%; */
+width: 100%;
+  background-image: url("../../images/logo2.png"); 
+  background-position: center center;
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-size: 70%;
+  background-clip: padding-box;
+   
 }
+
+.alertAppend{
+    
+    margin: auto;
+    margin-top: -170px;
+}
+

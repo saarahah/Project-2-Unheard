@@ -11,7 +11,6 @@ $(document).ready(function () {
   navigator.geolocation.getCurrentPosition(function (position) {
     lat = position.coords.latitude;
     long = position.coords.longitude;
-
   });
 
   let userId = null;
@@ -22,20 +21,18 @@ $(document).ready(function () {
     .then((data) => {
       userId = data.id;
 
-      console.log("user:", userId)
+      console.log("user:", userId);
 
       // get si exite mostrar y anadir boton delete display block
       $.get("/api/posts/" + userId, function (result) {
         // si resultado then show and unhide the button"
         console.log("result:", result);
-        titleInput.val(result.title)
-        bodyInput.val(result.body)
-        $("#deletePost").css("display", "block")
-      })
+        titleInput.val(result.title);
+        bodyInput.val(result.body);
+        $("#deletePost").css("display", "block");
+      });
     })
     .catch((err) => console.log(err));
-
-
 
   $(storyForm).on("submit", handleFormSubmit);
 
@@ -51,7 +48,7 @@ $(document).ready(function () {
       body: bodyInput.val().trim(),
       UserId: userId,
       lat: lat,
-      long: long
+      long: long,
     };
     console.log("this is " + JSON.stringify(newPost));
     submitPost(newPost);
@@ -63,6 +60,5 @@ $(document).ready(function () {
         window.location.href = "/user/page2";
       });
     }
-
   }
 });
