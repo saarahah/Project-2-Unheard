@@ -106,8 +106,8 @@ router.get("/user", auth, async (req, res) => {
   try {
     const userdId = req.session.passport.user;
     const user = await db.User.findOne({ where: { id: userdId } });
-    const { id, email } = user;
-    res.json({ id, email });
+    const { id, email, city, state } = user;
+    res.json({ id, email, city, state });
   } catch (err) {
     if (err) {
       console.log(err);
