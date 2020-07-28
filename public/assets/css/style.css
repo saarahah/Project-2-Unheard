@@ -32,6 +32,9 @@ width: 100%;
 .alertAppend{
     
     margin: auto;
-    margin-top: -170px;
+    margin-top: -200px;
 }
 
+#reg{
+    margin-top: -200px;
+}
