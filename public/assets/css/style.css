@@ -55,21 +55,26 @@ form{
     color: white;
 }
 
-#footer{
-  
-  background-color:white;
-  color: black;
-  opacity: 20%;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
 
-#navbarcontain{
-    background-color: black;
+
+.navbar{
+    background-color:black;
 }
 
 #story{
     font-family: 'Bebas Neue', cursive;
 }
 
+#footer{
+  
+    background-color:white;
+    color: black;
+    opacity: 20%;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+  }
+  #sidepiece{
+      background-color: black;
+  }
