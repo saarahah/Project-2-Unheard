@@ -12,10 +12,22 @@ router.get("/posts", function (req, res) {
   });
 });
 
+//The route matches this route /api/posts
+router.get("/posts/:userId", function (req, res) {
+  console.log("get post by user:", req.params)
+  db.Post.findOne({where:{UserId:req.params.userId}}).then(function (dbPost) {
+    res.json(dbPost);
+  
+    //send back all db posts as json
+    //send posts out
+  });
+});
+
 // POST route for saving a new post
 //The route matches this route /api/posts
 router.post("/posts", function (req, res) {
   db.Post.create(req.body).then(function (dbPost) {
+    console.log("dbPost", dbPost);
     res.json(dbPost);
   });
 });
