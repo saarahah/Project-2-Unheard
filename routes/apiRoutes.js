@@ -14,10 +14,12 @@ router.get("/posts", function (req, res) {
 
 //The route matches this route /api/posts
 router.get("/posts/:userId", function (req, res) {
-  console.log("get post by user:", req.params)
-  db.Post.findOne({where:{UserId:req.params.userId}}).then(function (dbPost) {
+  console.log("get post by user:", req.params);
+  db.Post.findOne({ where: { UserId: req.params.userId } }).then(function (
+    dbPost
+  ) {
     res.json(dbPost);
-  
+
     //send back all db posts as json
     //send posts out
   });
@@ -52,17 +54,16 @@ router.put("/update/email/:id", function (req, res) {
     res.json(dbUser);
   });
 });
-router.delete("/post/:id",function (req, res){
-  console.log("delete",req.params.id);
+router.delete("/post/:id", function (req, res) {
+  console.log("delete", req.params.id);
   db.Post.destroy({
-      where: {
-        id: req.params.id,
-      }
-    }).then(function (dbUser) {
+    where: {
+      id: req.params.id,
+    },
+  }).then(function (dbUser) {
     res.json(dbUser);
-  }); 
+  });
 });
-
 
 //PUT route for updating user profile password
 //The route matches this route /api/update/password
@@ -157,9 +158,5 @@ router.get("/deaths", function (req, res) {
     res.json(results);
   });
 });
-
-
-
-
 
 module.exports = router;

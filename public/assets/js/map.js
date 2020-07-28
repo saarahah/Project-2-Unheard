@@ -67,7 +67,7 @@ function initMap() {
       // console.log("parsed ", parseInt([i].lat));
       //  console.log("not parsed ", response[i].long);
 
-      var contentString = JSON.stringify(response[i].body);
+      var contentString = JSON.stringify(response[0].body);
 
       infoWindowarray[i] = new google.maps.InfoWindow({
         content: contentString,
