@@ -11,24 +11,26 @@ function initMap() {
     zoom: 4
   });
   
-  //  {
-  //   zoom: 4,
-  //   center: usaLatlng,
-  // };
-
   infoWindow = new google.maps.InfoWindow;
 
-  // Try HTML5 geolocation.
+  // Below states if the app was able to grab User's GeoLoc then display else display the error function placed at the end of the script aka handleLocationError. 
+
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       var pos = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-
+      var marker = new google.maps.Marker({
+        position: pos,
+        map: map
+       
+      });
+      //info below is for marker placement and positioning of User's location on map// 
       infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
-      infoWindow.open(map);
+      //(The following logged out code is to place a string of info inside the infowindow) infoWindow.setContent(marker);
+      //(The following logged out code is to place a the actual infowindow inside the map aka text bubble) infoWindow.open(map);
+      marker.setMap(map);
       map.setCenter(pos);
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
