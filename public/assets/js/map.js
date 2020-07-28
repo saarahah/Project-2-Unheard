@@ -9,6 +9,42 @@ function initMap() {
   var mapOptions = {
     zoom: 4,
     center: usaLatlng,
+    styles: [
+      {
+        elementType: "geometry",
+        stylers: [
+          {
+            color: "#000000",
+          },
+        ],
+      },
+      {
+        elementType: "labels.text.stroke",
+        stylers: [
+          {
+            color: "#242f3e",
+          },
+        ],
+      },
+      {
+        elementType: "labels.text.fill",
+        stylers: [
+          {
+            color: "#746855",
+          },
+        ],
+      },
+
+      {
+        featureType: "water",
+        elementType: "geometry",
+        stylers: [
+          {
+            color: "#17263c",
+          },
+        ],
+      },
+    ],
   };
   // var iconBase =
   //   "https://developers.google.com/maps/documentation/javascript/examples/full/images/";
@@ -29,7 +65,7 @@ function initMap() {
   $.get("/api/posts").then((response) => {
     console.log("these are the response", response);
     // push element in
-    var infoWindowarray = []
+    var infoWindowarray = [];
     for (let i = 0; i < response.length; i++) {
       // const temp = new google.maps.LatLng(response[i].lat, response[i].long);
       // storyMarkerArray.push(
@@ -40,8 +76,7 @@ function initMap() {
 
       infoWindowarray[i] = new google.maps.InfoWindow({
         content: contentString,
-        maxWidth: "150px"
-
+        maxWidth: "150px",
       });
 
       console.log("this is the cstring", contentString);
@@ -57,7 +92,6 @@ function initMap() {
         icon: icons.post.icon,
       });
       marker.addListener("click", function () {
-
         infoWindowarray[i].open(map, this);
       });
     }
