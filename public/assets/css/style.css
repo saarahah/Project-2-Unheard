@@ -64,6 +64,12 @@ form{
   bottom: 0;
   width: 100%;
 }
+
+#navbarcontain{
+    background-color: black;
+}
+
+=======
 .gm-style{
     color: black;
 }
