@@ -8,11 +8,34 @@ $(document).ready(function () {
   var lat = null;
   var long = null;
 
-  navigator.geolocation.getCurrentPosition(function(position){
-   lat = position.coords.latitude;
-   long = position.coords.longitude;
+  navigator.geolocation.getCurrentPosition(function (position) {
+    lat = position.coords.latitude;
+    long = position.coords.longitude;
 
   });
+
+  let userId = null;
+  // Get current User and display email information.
+  // Here you can display any User information coming from the server.
+  fetch("/auth/user")
+    .then((response) => response.json())
+    .then((data) => {
+      userId = data.id;
+
+      console.log("user:", userId)
+
+      // get si exite mostrar y anadir boton delete display block
+      $.get("/api/posts/" + userId, function (result) {
+        // si resultado then show and unhide the button"
+        console.log("result:", result);
+        titleInput.val(result.title)
+        bodyInput.val(result.body)
+        $("#deletePost").css("display", "block")
+      })
+    })
+    .catch((err) => console.log(err));
+
+
 
   $(storyForm).on("submit", handleFormSubmit);
 
