@@ -30,6 +30,7 @@ $(document).ready(function () {
         titleInput.val(result.title);
         bodyInput.val(result.body);
         $("#deletePost").css("display", "block");
+        $("#deletePost").attr("data-id",result.id); 
       });
     })
     .catch((err) => console.log(err));
@@ -62,3 +63,23 @@ $(document).ready(function () {
     }
   }
 });
+
+
+
+$("#deletePost").on("click",function(){
+const id=$(this).data("id");
+
+  $.ajax({
+    url:"/api/post/"+ id,
+    method:"DELETE"
+
+  })
+.then(function(data){
+  window.location.href = "/user/page2";
+})
+
+
+
+
+})
+

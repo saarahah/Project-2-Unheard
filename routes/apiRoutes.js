@@ -52,6 +52,17 @@ router.put("/update/email/:id", function (req, res) {
     res.json(dbUser);
   });
 });
+router.delete("/post/:id",function (req, res){
+  console.log("delete",req.params.id);
+  db.Post.destroy({
+      where: {
+        id: req.params.id,
+      }
+    }).then(function (dbUser) {
+    res.json(dbUser);
+  }); 
+});
+
 
 //PUT route for updating user profile password
 //The route matches this route /api/update/password
