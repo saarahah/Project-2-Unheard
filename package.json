@@ -1,7 +1,7 @@
 {
   "name": "passport_sequelize_boiler_plate",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Description As a developer we created an app the makes the user created a profile and add a story about somebody drug death. Then in the map web page the user will be able to see a map of United States showing in circles how many people have died of drug abused. Also the user will be able to click on the blue markers on the map to see stories from others users and see that this is on going problem so they can help themselves or someone they know so they can stop using drugs.",
   "main": "server.js",
   "scripts": {
     "lint": "eslint **/*.js --quiet",
@@ -24,5 +24,13 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "sequelize": "^5.21.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saarahah/Project-2-Unheard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/saarahah/Project-2-Unheard/issues"
+  },
+  "homepage": "https://github.com/saarahah/Project-2-Unheard#readme"
 }
