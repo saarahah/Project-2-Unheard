@@ -30,15 +30,16 @@ $(document).ready(function () {
         titleInput.val(result.title);
         bodyInput.val(result.body);
         $("#deletePost").css("display", "block");
-        $("#deletePost").attr("data-id",result.id); 
+        $("#deletePost").attr("data-id", result.id);
       });
     })
     .catch((err) => console.log(err));
 
-  $(storyForm).on("submit", handleFormSubmit);
+  $("#submitbtn").on("click", handleFormSubmit);
 
   function handleFormSubmit(event) {
     event.preventDefault();
+    console.log("post")
     // Wont submit the post if we are missing a body, title, or author
     if (!titleInput.val().trim() || !bodyInput.val().trim()) {
       return;
@@ -64,22 +65,13 @@ $(document).ready(function () {
   }
 });
 
-
-
-$("#deletePost").on("click",function(){
-const id=$(this).data("id");
+$("#deletePost").on("click", function () {
+  const id = $(this).data("id");
 
   $.ajax({
-    url:"/api/post/"+ id,
-    method:"DELETE"
-
-  })
-.then(function(data){
-  window.location.href = "/user/page2";
-})
-
-
-
-
-})
-
+    url: "/api/post/" + id,
+    method: "DELETE",
+  }).then(function (data) {
+    window.location.href = "/user/page2";
+  });
+});
