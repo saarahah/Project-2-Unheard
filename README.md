@@ -1,4 +1,4 @@
-# Project 2 Safetynet
+# Project 2 Unheard Stories
 
 ## Description
 As a developer we created an app the makes the user created a profile and add a story about somebody drug death. Then in the map web page the user will be able to see a map of United States showing in circles how many people have died of drug abused. Also the user will be able to click on the blue markers on the map to see stories from others users and see that this is on going problem so they can help themselves or someone they know so they can stop using drugs.
@@ -13,7 +13,7 @@ As a developer we created an app the makes the user created a profile and add a 
 
 MIT License
 
-Copyright (c) [2020] [Project 2 Safetynet]
+Copyright (c) [2020] [Project 2 Unheard Stories]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

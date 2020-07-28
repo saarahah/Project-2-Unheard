@@ -64,6 +64,9 @@ form{
   bottom: 0;
   width: 100%;
 }
+.gm-style{
+    color: black;
+}
 /* 
 .text-success{
     color:white;
