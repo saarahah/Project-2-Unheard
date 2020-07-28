@@ -69,7 +69,11 @@ form{
     background-color: black;
 }
 
-=======
+
+#story{
+    font-family: 'Bebas Neue', cursive;
+}
+
 .gm-style{
     color: black;
 }
@@ -83,3 +87,4 @@ form{
 #registerA{
     color: cyan;
 }
+
