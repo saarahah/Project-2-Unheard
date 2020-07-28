@@ -78,3 +78,9 @@ form{
   #sidepiece{
       background-color: black;
   }
+
+  .btn, .btn-info{
+      background-color: grey;
+      margin-left: 50px;
+      stroke: none;
+  }
