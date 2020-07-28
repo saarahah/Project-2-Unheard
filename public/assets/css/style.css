@@ -61,6 +61,7 @@ form{
     background-color:black;
 }
 
+
 #story{
     font-family: 'Bebas Neue', cursive;
 }
@@ -79,8 +80,15 @@ form{
       background-color: black;
   }
 
+
   .btn, .btn-info{
       background-color: grey;
       margin-left: 50px;
       stroke: none;
   }
+
+.gm-style{
+    color: black;
+}
+
+
