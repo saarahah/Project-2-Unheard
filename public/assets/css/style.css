@@ -47,8 +47,8 @@ width: 100%;
 }
 
 #dash{
-    padding-left: 60%;
-    margin-right: -250px;
+    padding-left: 70%;
+    margin-right: -280px;
 
 }
 form{
@@ -68,3 +68,7 @@ form{
 .text-success{
     color:white;
 } */
+
+#story{
+    font-family: 'Bebas Neue', cursive;
+}
