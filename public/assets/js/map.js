@@ -2,37 +2,68 @@
 let states = [];
 let deathScale = 0;
 let response = [];
+var map, infoWindow;
 var deathColor;
 
 function initMap() {
   var usaLatlng = new google.maps.LatLng(39.381266, -97.922211);
-  var mapOptions = {
-    zoom: 4,
+  map = new google.maps.Map(document.getElementById("map"),{
     center: usaLatlng,
-    styles: [
+    zoom: 4
+  });
+  
+  infoWindow = new google.maps.InfoWindow;
+
+  // Below states if the app was able to grab User's GeoLoc then display else display the error function placed at the end of the script aka handleLocationError. 
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      var marker = new google.maps.Marker({
+        position: pos,
+        map: map
+       
+      });
+      //info below is for marker placement and positioning of User's location on map// 
+      infoWindow.setPosition(pos);
+      //(The following logged out code is to place a string of info inside the infowindow) infoWindow.setContent(marker);
+      //(The following logged out code is to place a the actual infowindow inside the map aka text bubble) infoWindow.open(map);
+      marker.setMap(map);
+      map.setCenter(pos);
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+     [
       {
         elementType: "geometry",
         stylers: [
           {
             color: "#000000",
-          },
-        ],
+          }
+        ]
       },
       {
         elementType: "labels.text.stroke",
         stylers: [
           {
             color: "#242f3e",
-          },
-        ],
+          }
+        ]
       },
       {
         elementType: "labels.text.fill",
         stylers: [
           {
             color: "#746855",
-          },
-        ],
+          }
+        ]
       },
 
       {
@@ -41,11 +72,11 @@ function initMap() {
         stylers: [
           {
             color: "#17263c",
-          },
-        ],
-      },
-    ],
-  };
+          }
+        ]
+      }
+    ];
+  
   // var iconBase =
   //   "https://developers.google.com/maps/documentation/javascript/examples/full/images/";
 
@@ -54,8 +85,6 @@ function initMap() {
       icon: "https://storage.googleapis.com/support-kms-prod/SNP_2752068_en_v0",
     },
   };
-
-  var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
   //testing
   // console.log("markers " + markerArray);
@@ -95,7 +124,7 @@ function initMap() {
         infoWindowarray[i].open(map, this);
       });
     }
-    console.log("here is the title", response[0].title);
+    // console.log("here is the title", response[0].title);
   });
 
   $.get("/api/deaths", (deathData) => {
@@ -153,3 +182,14 @@ function initMap() {
     }
   });
 }
+
+
+//function referencing user geoLoc Err//
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+  infoWindow.open(map);
+}
+

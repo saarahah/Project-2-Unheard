@@ -69,7 +69,22 @@ form{
     background-color: black;
 }
 
+
 #story{
     font-family: 'Bebas Neue', cursive;
+}
+
+.gm-style{
+    color: black;
+}
+/* 
+.text-success{
+    color:white;
+} */
+#registerText{
+    color: blueviolet;
+}
+#registerA{
+    color: cyan;
 }
 
