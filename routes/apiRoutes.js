@@ -6,7 +6,7 @@ var db = require("../models");
 //The route matches this route /api/posts
 router.get("/posts", function (req, res) {
   db.Post.findAll().then(function (dbPost) {
-    //send back all db posts as json
+   res.json(dbPost);
     //send posts out
   });
 });
@@ -115,10 +115,10 @@ router.get("/user/info/:id", function (req, res) {
     },
   }).then(function (dbUser) {
     // res.render("profile", { user_data: dbUser });
-    res.render("profile", { user_data: db.User });
+    res.render("profile", { user_data: dbUser });
 
     // res.json(dbUser);
-    // console.log(dbUser);
+    console.log(dbUser);
   });
 });
 

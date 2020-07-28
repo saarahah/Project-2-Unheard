@@ -140,16 +140,24 @@ $(document).ready(function () {
         .then((data) => {
             console.log("2nd then data - " + data.email);
             userId = data.id;
-            id = userId
+            id = userId;
             userName.textContent = data.email;
             userEmail = userName.textContent = data.email;
             console.log("User Email is " + userEmail);
+            ////////////////////////////////////
+            console.log("id *****" + id);
+            $.ajax("/user/info/" + id, {
+                type: "GET",
+                data: userId
+            })
+
+            ////////////////////////////////////
             // return userId;
         })
         .then(value => {
-            console.log(".then console log userId " );
+            console.log(".then console log userId ");
             //We now have the user data in mySQL.  Need to figure out how to get their data from the table now
-            $.ajax("/user/profile/", {
+            $.ajax("/user/profile/" + id, {
                 type: "GET",
                 data: userId
             })
