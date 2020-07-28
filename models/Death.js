@@ -13,14 +13,14 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    
+
     lat: {
       type: DataTypes.FLOAT,
     },
 
-    long:{
-      type: DataTypes.FLOAT
-    }
+    long: {
+      type: DataTypes.FLOAT,
+    },
   });
   return Death;
 };
