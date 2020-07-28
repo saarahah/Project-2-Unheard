@@ -41,7 +41,13 @@ width: 100%;
 
 .alertAppendReg{
     
-    padding-left: 10%;
+    padding-left: 20%;
     margin-right: -100px;
     /* padding-right: -200px; */
+}
+
+#dash{
+    padding-left: 60%;
+    margin-right: -250px;
+
 }
