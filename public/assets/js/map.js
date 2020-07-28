@@ -40,30 +40,30 @@ function initMap() {
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
   }
-    styles: [
+     [
       {
         elementType: "geometry",
         stylers: [
           {
             color: "#000000",
-          },
-        ],
+          }
+        ]
       },
       {
         elementType: "labels.text.stroke",
         stylers: [
           {
             color: "#242f3e",
-          },
-        ],
+          }
+        ]
       },
       {
         elementType: "labels.text.fill",
         stylers: [
           {
             color: "#746855",
-          },
-        ],
+          }
+        ]
       },
 
       {
@@ -72,8 +72,8 @@ function initMap() {
         stylers: [
           {
             color: "#17263c",
-          },
-        ],
+          }
+        ]
       }
     ];
   
