@@ -117,25 +117,35 @@ $("#submitBtnRegStateUpdate").on("click", function (event) {
 
 // Code to display current user email
 $(document).ready(function () {
-  var userName = document.querySelector(".userName");
-  let userId = null;
+    var userName = document.querySelector(".userName");
+    let userId = null;
+    let userEmail = null;
 
-  fetch("/auth/user")
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("2nd then data - " + data.email);
-      userId = data.id;
-      id = userId;
-      userName.textContent = data.email;
-      // return userId;
-    })
-    .then((value) => {
-      console.log(".then console log userId " + userId);
-      //We now have the user data in mySQL.  Need to figure out how to get their data from the table now
-      console.log(".then userId test = " + id);
-      $.ajax("/api/user/info/" + id, {
-        type: "GET",
-        data: userId,
-      });
-    });
+    fetch("/auth/user")
+        .then((response) => response.json())
+        .then((data) => {
+            console.log("2nd then data - " + data.email);
+            userId = data.id;
+            id = userId;
+            userName.textContent = data.email;
+            userEmail = userName.textContent = data.email;
+            console.log("User Email is " + userEmail);
+            ////////////////////////////////////
+            console.log("id *****" + id);
+            $.ajax("/user/info/" + id, {
+                type: "GET",
+                data: userId
+            })
+
+            ////////////////////////////////////
+            // return userId;
+        })
+        .then(value => {
+            console.log(".then console log userId ");
+            //We now have the user data in mySQL.  Need to figure out how to get their data from the table now
+            $.ajax("/user/profile/" + id, {
+                type: "GET",
+                data: userId
+            })
+        })
 });

@@ -18,6 +18,7 @@ passport.use(new LocalStrategy({ usernameField: "email" }, (email, password, don
     // compare the password with the "hashed" password"
     bcrypt.compare(password, user.password).then((match) => {
       if (match) {
+      console.log("in passport : " + user);
         // if match return user
         return done(null, user);
       } else {
