@@ -30,21 +30,30 @@
 </div>
 <div class="container mt-4">
     <div class="row">
-        <div class="col-md-4 mx-auto text-center text-info">
+        <div class="col-md-4 mx-auto text-center">
             <h2>User Profile</h2>
         </div>
     </div>
 </div>
 
-<div class="form-group-usrUpdate text-primary">
-    <div class="row">
+<div class="form-group-usrUpdate">
+    <div class="row" id ="abc">
         <div class="col-md-6 mx-auto text-left">
+            {{!-- Allows user to view their email --}}
+            <label for="usrProfileEmail" id="usrProfileEmail">Current Email - </label><span id = "usrProfileEmailSpan">{{email}}</span>
+            <hr>
+            {{!-- Allows user to view their City --}}
+            <label for="usrProfileCity" id ="usrProfileCity">Current City - </label><span id = "usrProfileCitySpan">{{city}}</span>
+            <hr>
+            {{!-- Allows user to view their State --}}
+            <label for="usrProfileState" id = "usrProfileState">Current State - </label><span id = "usrProfileStateSpan">{{state}}</span>
+            <hr>
             <h2 class="text-center">Update your info</h2>
 
             {{!-- Allows user to change their email --}}
             <label for="usrProfileEmailUpdate">Email</label>
             <input type="email" class="form-control" id="usrProfileEmailUpdate">
-            <button id="submitBtnRegEmailUpdate" type="submit" class="btn btn-info">Update Email</button>
+            <button id="submitBtnRegEmailUpdate" type="submit" class="btn btn-primary">Update Email</button>
             <hr>
             {{!-- Allows user to change their password --}}
             {{!-- <label for="usrProfilePasswordUpdate">Password</label>
@@ -54,7 +63,7 @@
             {{!-- Allows user to change their city --}}
             <label for="usrProfileCityUpdate">City</label>
             <input type="input" class="form-control" id="usrProfileCityUpdate">
-            <button id="submitBtnRegCityUpdate" type="submit" class="btn btn-info">Update City</button>
+            <button id="submitBtnRegCityUpdate" type="submit" class="btn btn-primary">Update City</button>
             <hr>
             {{!-- Allows user to change their State from a drop down --}}
             <label for="usrProfileStateUpdate">State</label>
@@ -111,9 +120,12 @@
                 <option value="WI">WI</option>
                 <option value="WY">WY</option>
             </select>
-            <button id="submitBtnRegStateUpdate" type="submit" class="btn btn-info">Update State</button>
+            <button id="submitBtnRegStateUpdate" type="submit" class="btn btn-primary">Update State</button>
             <hr>
 
+            <label for="usrProfileImage">Profile Image</label>
+            <input type="input" class="form-control" id="picInputReg">
+            <button id="submitBtnReg" type="submit" class="btn btn-primary">Upload Image</button>
         </div>
     </div>
 </div>
