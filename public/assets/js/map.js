@@ -71,12 +71,21 @@ function initMap() {
         elementType: "geometry",
         stylers: [
           {
+
+            color: "#FFFFFF",
+          },
+        ],
+      },
+    ],
+  };
+
             color: "#17263c",
           }
         ]
       }
     ];
   
+
   // var iconBase =
   //   "https://developers.google.com/maps/documentation/javascript/examples/full/images/";
 
