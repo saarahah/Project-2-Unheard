@@ -1,10 +1,10 @@
 # Project 2 Unheard Stories
 
 ## Description
-As a developer we created an app the makes the user created a profile and add a story about somebody drug death. Then in the map web page the user will be able to see a map of United States showing in circles how many people have died of drug abused. Also the user will be able to click on the blue markers on the map to see stories from others users and see that this is on going problem so they can help themselves or someone they know so they can stop using drugs.
+As developers we created an app where the user creates a profile and add a story about drug abuse. after user submits the story the user is taking to a map of USA, in the map web page the user will be able to see in circles how many people have died of drug abused. Also the user will be able to click on the blue markers on the map to see stories from others users and see that this is on going problem so they can help themselves or someone they know so they can stop using drugs.
 
 ## Screenshot 
-<img src ="./public/images/Drugs.jpg" width="500">
+<img src ="./public/images/screenshot.png" width="500">
 
 ## Badge
 ![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen)
