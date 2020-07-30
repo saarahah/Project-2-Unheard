@@ -28,11 +28,32 @@ router.get("/posts/:userId", function (req, res) {
 // POST route for saving a new post
 //The route matches this route /api/posts
 router.post("/posts", function (req, res) {
-  db.Post.create(req.body).then(function (dbPost) {
-    console.log("dbPost", dbPost);
-    res.json(dbPost);
+  console.log(req.body)
+  db.Post.findOne({ where: { UserId: req.body.UserId } }).then( function (result) {
+    console.log(result)
+    if (result) {
+      db.Post.update(
+        req.body,
+        {
+          where: {
+          id: result.id
+          },
+        }
+      ).then(function (dbUser) {
+        res.json(dbUser);
+      });
+    } 
+    else {
+      db.Post.create(req.body).then(function (dbPost) {
+        console.log("dbPost", dbPost);
+        res.json(dbPost);
+      });
+    }
   });
+
 });
+// find by user id  if exist then update if not then create
+
 
 //PUT route for updating user profile email
 //The route matches this route /api/update/email

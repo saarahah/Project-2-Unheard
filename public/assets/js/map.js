@@ -51,7 +51,10 @@ function initMap() {
       icon: "https://storage.googleapis.com/support-kms-prod/SNP_2752068_en_v0",
     },
   };
-  var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+   map = new google.maps.Map(document.getElementById("map"), mapOptions);
+      // set up the style rules and events for google.maps.Data
+      map.data.addListener('mouseover', mousein);
+      map.data.addListener('mouseout', mouseout);
   //testing
   // console.log("markers " + markerArray);
   // console.log("states " + states);
@@ -67,7 +70,7 @@ function initMap() {
       // console.log("parsed ", parseInt([i].lat));
       //  console.log("not parsed ", response[i].long);
 
-      var contentString = JSON.stringify(response[0].body);
+      var contentString = JSON.stringify(response[i].body);
 
       infoWindowarray[i] = new google.maps.InfoWindow({
         content: contentString,
@@ -145,5 +148,15 @@ function initMap() {
         icon: circle,
       });
     }
+ 
+
   });
+  function mousein() {
+    console.log("in", this);
+    
+  }
+  function mouseout() {
+    console.log("out", this);
+    
+  }
 }

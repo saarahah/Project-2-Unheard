@@ -85,10 +85,13 @@ form{
       background-color: grey;
       margin-left: 50px;
       stroke: none;
+
   }
 
 .gm-style{
     color: black;
 }
-
+.gm-style-iw-d{
+max-width: 150px;
+}
 
